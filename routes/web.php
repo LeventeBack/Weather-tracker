@@ -23,4 +23,3 @@ Route::resource('sensors', 'SensorsController');
 Route::resource('datas', 'DatasController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark bg-info shadow-sm mb-5">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -10,7 +10,29 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+                @if(!Auth::guest())
+                    @if(Auth::user()->isAdmin())
+                        <li class="nav-item">
+                            <a class="nav-link" href="/datas">Latest data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sensors">Sensors</a>
+                        </li>
+                    @else 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/datas">Latest data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/charts">Charts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sensors">My Sensors</a>
+                        </li>
+                    @endif
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
