@@ -7,9 +7,9 @@
             <table class="table mt-4 text-center">   
                 <tr class="th__images">
                     <th>Sensor name</th>
-                    <th><img src="img/temperature.png" alt="temperature"></th>
-                    <th><img src="img/humidity.png" alt="humidity"></th>
-                    <th><img src="img/pressure.png" alt="pressure"></th>
+                    <th><img src="{{asset("storage/img/temperature.png")}}" alt="temperature"></th>
+                    <th><img src="{{asset("storage/img/humidity.png")}}" alt="humidity"></th>
+                    <th><img src="{{asset("storage/img/pressure.png")}}" alt="pressure"></th>
                     <th>Read time</th>
                 </tr>  
                 @foreach ($datas as $data)

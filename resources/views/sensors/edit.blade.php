@@ -43,7 +43,7 @@
                 <h6>Set your preferred  range in which the data is not an alert.</h6>
                 <div class="show_container__custom text-center">
                     <div class="item_group">
-                        <img src="/img/temperature.png" alt="">
+                        <img src="{{asset("storage/img/temperature.png")}}" alt="temperature">
                         <div class="details">
                             <h5>Air Temperature</h5>
                             <hr>
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="item_group">
-                        <img src="/img/humidity.png" alt="">
+                        <img src="{{asset("storage/img/humidity.png")}}" alt="humidity">
                         <div class="details">
                             <h5>Air Humidity</h5>
                             <hr> 
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="item_group">
-                        <img src="/img/pressure.png" alt="">
+                        <img src="{{asset("storage/img/pressure.png")}}" alt="pressure">
                         <div class="details">
                             <h5>Air Pressure</h5>
                             <hr>
