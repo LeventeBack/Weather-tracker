@@ -18,6 +18,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/charts', 'PagesController@charts');
 
 Route::get('/users', 'PagesController@users');
+Route::get('/users/{id}', 'PagesController@singleuser');
 
 Route::resource('sensors', 'SensorsController');
 Route::resource('datas', 'DatasController');

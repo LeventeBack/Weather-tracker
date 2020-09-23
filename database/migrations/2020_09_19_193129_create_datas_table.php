@@ -19,7 +19,7 @@ class CreateDatasTable extends Migration
             $table->float('temperature');
             $table->float('humidity');
             $table->float('pressure');
-            $table->timestamp('added_on');
+            $table->timestamps();
         });
     }
 

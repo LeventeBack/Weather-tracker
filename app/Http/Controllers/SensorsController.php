@@ -125,7 +125,8 @@ class SensorsController extends Controller
         $sensor = Sensor::find($id);
 
         if($sensor && (auth()->user()->id === $sensor->user_id || auth()->user()->isAdmin())) {
-            return view('sensors.edit')->with('sensor', $sensor);
+            $users = User::all();
+            return view('sensors.edit')->with(['sensor'=> $sensor, 'users' => $users]);
         }
 
         return redirect('/sensors')->with('error', 'Unathorized Page');
@@ -141,6 +142,7 @@ class SensorsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'user_id' => 'required',
             'name' => 'required',
             'location' => 'required',
             'min_temperature' => 'required',
@@ -153,6 +155,7 @@ class SensorsController extends Controller
         ]);
 
         $sensor = Sensor::find($id);
+        $sensor->user_id = $request->input('user_id');
         $sensor->name = $request->input('name');
         $sensor->location = $request->input('location');
         $sensor->min_temperature = $request->input('min_temperature');
@@ -175,10 +178,13 @@ class SensorsController extends Controller
      */
     public function destroy($id)
     {
-        /* CODE TO DESTROY */
-        if(auth()->user()->isAdmin()){
-            //return '<h1>Delete page</h1>';
-        }
+        $sensor = Sensor::find($id);
 
+        if(auth()->user()->isAdmin()){
+            $sensor->delete();
+            return redirect('/sensors')->with('success', 'Sensor Deleted');
+        } else {
+            return redirect('/sensors')->with('error', 'Unathorized Page');   
+        }
     }
 }

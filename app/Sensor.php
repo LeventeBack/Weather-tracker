@@ -9,4 +9,8 @@ class Sensor extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    public function datas(){
+        return $this->hasMany('App\Data');
+    }
 }

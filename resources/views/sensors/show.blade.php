@@ -1,16 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card border-info">
+    <div class="card border-info mb-5">
         <div class="item-color" style="background-color:{{$sensor->color}}"></div>
-        <div class="card-body">
-            <a href="/sensors" class="btn btn-outline-info text-left">Back</a>
+        <div class="card-body"> 
+            <a href="/sensors" class="btn btn-outline-info text-left ">Back</a>
+           
+            <h2 class="text-center d-block mx-auto">Settings</h2><br>
             <h4 class="text-center">Name: <strong>{{$sensor->name}}</strong></h4>  
             <h5 class="text-center">Location: <strong>{{$sensor->location}}</strong></h5>
             <hr> 
             <div class="show_container__custom text-center">
                 <div class="item_group">
-                    <img src="/img/temperature.png" alt="">
+                    <img src="{{asset("storage/img/temperature.png")}}" alt="temperature">
                     <div class="details">
                         <h5>Air Temperature</h5>
                         <hr>
@@ -19,7 +21,7 @@
                     </div>
                 </div>
                 <div class="item_group">
-                    <img src="/img/humidity.png" alt="">
+                    <img src="{{asset("storage/img/humidity.png")}}" alt="humidity">
                     <div class="details">
                         <h5>Air Humidity</h5>
                         <hr>
@@ -28,7 +30,7 @@
                     </div>
                 </div>
                 <div class="item_group">
-                    <img src="/img/pressure.png" alt="">
+                    <img src="{{asset("storage/img/pressure.png")}}" alt="pressure">
                     <div class="details">
                         <h5>Air Pressure</h5>
                         <hr>
@@ -45,6 +47,31 @@
        
         </div>
     </div>
-    <!-- SENSOR INFO WITH PAGINATION -->
+    <div class="container mb-5">
+        @if(count($sensor->datas) > 0)
+            <h3 class="text-center">Latest data</h3>
+            <div class="table-responsive">
+                <table class="table mt-4 text-center">   
+                    <tr class="th__images">
+                        <th><img src="{{asset("storage/img/temperature.png")}}" alt="temperature"></th>
+                        <th><img src="{{asset("storage/img/humidity.png")}}" alt="humidity"></th>
+                        <th><img src="{{asset("storage/img/pressure.png")}}" alt="pressure"></th>
+                        <th>Read time</th>
+                    </tr>  
+                    @foreach ($sensor->datas->reverse() as $data)
+                        <tr {{--class="{{$data->getClassName($sensor->id, $data->id)}}"--}}>
+                            <td>{{$data->temperature}}&deg;C</td>
+                            <td>{{$data->humidity}}%</td>
+                            <td>{{$data->pressure}}hPa</td>
+                            <td>{{$data->created_at}}
+                            </td>
+                        </tr>                        
+                    @endforeach 
+                </table>  
+            </div>
+        @else
+            <h3 class="text-center">There was no incoming data.</h3>
+        @endif
+    </div>
  
 @endsection

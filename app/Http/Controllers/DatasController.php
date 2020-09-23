@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Data;
+use App\User;
+use DB;
 
 class DatasController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,18 @@ class DatasController extends Controller
      */
     public function index()
     {
-        return view('datas.index');
+        if(auth()->user()->isAdmin()){
+            $datas = Data::orderBy('created_at', 'desc')->get();   
+        } else {
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+            $datas = DB::table('datas')->whereIn('sensor_id',  array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
+            foreach ($datas as $data){
+                return $data->sensor;
+            }
+        }
+
+        return view('datas.index')->with('datas', $datas);
     }
 
     /**
@@ -23,7 +46,7 @@ class DatasController extends Controller
      */
     public function create()
     {
-        // ARDUINIO REQUEST
+        return redirect('/datas');
     }
 
     /**
@@ -34,7 +57,21 @@ class DatasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // ARDUINIO REQUEST
+        $this->validate($request, [
+            'sensor_id' => 'required',
+            'temperature' => 'required',
+            'humidity' => 'required',
+            'pressure' => 'required'
+        ]);
+
+        $data = new Data();
+        $data->sensor_id = $request->input('sensor_id'); 
+        $data->temperature = $request->input('temperature'); 
+        $data->humidity = $request->input('humidity'); 
+        $data->pressure = $request->input('pressure'); 
+
+        $data->save();
     }
 
     /**
@@ -45,7 +82,9 @@ class DatasController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Data::find($id);
+
+        return view('datas.show')->with('data', $data);
     }
 
     /**
@@ -56,7 +95,7 @@ class DatasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return redirect('/datas');
     }
 
     /**
@@ -68,7 +107,7 @@ class DatasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect('/datas');
     }
 
     /**
@@ -79,6 +118,13 @@ class DatasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Data::find($id);
+
+        if(auth()->user()->isAdmin()){
+            $data->delete();
+            return redirect('/datas')->with('success', 'Data Deleted');
+        } else {
+            return redirect('/datas')->with('error', 'Unathorized Page');   
+        }
     }
 }

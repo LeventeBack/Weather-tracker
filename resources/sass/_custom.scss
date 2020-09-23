@@ -1,23 +1,6 @@
 .navbar-collapse.collapse.in {
     display: block !important;
 }
-.table__custom {
-    border-collapse: collapse;
-    margin: 15px auto;
-}
-
-.table__custom th,
-.table__custom td {
-    text-align: center;
-    vertical-align: center;
-    padding: 7px 12px;
-}
-.table__custom th {
-    background-color: rgba(0, 0, 0, 0.13);
-}
-.table__custom tr:nth-child(even) > td {
-    background-color: rgba(0, 0, 0, 0.06);
-}
 
 .show_container__custom {
     display: grid;
@@ -40,6 +23,12 @@
     right: 5%;
     top: 1.2rem;
 }
-
-.custom__center {
+.th__images > th {
+    padding: 0 !important;
+    vertical-align: middle;
+}
+.th__images > th > img {
+    max-width: 100%;
+    width: 100%;
+    max-width: 100px;
 }

@@ -17,12 +17,16 @@
                     <small class="form-text text-muted">Make it descriptive</small>
                 </div>
                 <div class="form-group">
-                    <label for="location">Sensors owner:</label>
+                    <label for="user_id">Sensors owner:</label>
                     @if(count($users) > 0)
                         <select name="user_id" class="custom-select">    
-                            <option value="0">None</option>
                             @foreach ($users as $user)
-                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                <option value="{{$user->id}}">
+                                    {{$user->name}}
+                                    @if($user->isAdmin()) 
+                                        (none)
+                                    @endif
+                                </option>
                             @endforeach
                         </select>
                     @endif

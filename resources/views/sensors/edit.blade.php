@@ -7,8 +7,11 @@
             @csrf
             <div class="card-body">
                 <a href="/sensors/{{$sensor->id}}" class="btn btn-outline-info">Back</a>
+                <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
+                    Delete Sensor
+                </button>
                 <h3 class="text-center">Edit Sensor</h3>
-                <div class="form-group">
+                exampleModal<div class="form-group">
                     <label for="name">Name:</label>
                     <input name="name" type="text" class="form-control" id="name" placeholder="Sensor's name" value="{{$sensor->name}}">
                 </div>
@@ -16,6 +19,25 @@
                     <label for="location">Location:</label>
                     <input type="text" class="form-control" id="location" name="location" placeholder="Sensor's location" value="{{$sensor->location}}">
                     <small class="form-text text-muted">Make it descriptive</small>
+                </div>
+                <div class="form-group">
+                    <label for="user_id">Sensors owner:</label>
+                    @if(count($users) > 0)
+                    <select name="user_id" class="custom-select">    
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}"
+                                    @if($user->id == $sensor->user_id)
+                                        selected
+                                    @endif
+                                >
+                                    {{$user->name}}
+                                    @if($user->isAdmin()) 
+                                     (none)
+                                    @endif
+                                </option>
+                            @endforeach
+                        </select>
+                    @endif
                 </div>
                 <hr> 
                 <h6>Set your preferred  range in which the data is not an alert.</h6>
@@ -125,4 +147,29 @@
         </form>
        
     </div> 
+
+        <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Sensor</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this sensor. All the data will be inaccessible!
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <form class="float-right" action="{{ action('SensorsController@destroy', $sensor->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
 @endsection
