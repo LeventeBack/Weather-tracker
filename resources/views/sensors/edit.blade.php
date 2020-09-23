@@ -11,7 +11,7 @@
                     Delete Sensor
                 </button>
                 <h3 class="text-center">Edit Sensor</h3>
-                exampleModal<div class="form-group">
+                <div class="form-group">
                     <label for="name">Name:</label>
                     <input name="name" type="text" class="form-control" id="name" placeholder="Sensor's name" value="{{$sensor->name}}">
                 </div>
@@ -40,6 +40,8 @@
                             </select>
                         @endif
                     </div>
+                @else
+                    <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                 @endif
                 <hr> 
                 <h6>Set your preferred  range in which the data is not an alert.</h6>
