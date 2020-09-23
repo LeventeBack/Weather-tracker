@@ -16,18 +16,22 @@ class DatasController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->isAdmin()){
-            $datas = Data::orderBy('created_at', 'desc')->get();   
-        } else {
-            $user_id = auth()->user()->id;
-            $user = User::find($user_id);
-            $datas = DB::table('datas')->whereIn('sensor_id',  array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
-            foreach ($datas as $data){
-                return $data->sensor;
+        if(auth()->check()){
+            if(auth()->user()->isAdmin()){
+                $datas = Data::orderBy('created_at', 'desc')->get();   
+            } else {
+                $user_id = auth()->user()->id;
+                $user = User::find($user_id);
+                $datas = DB::table('datas')->whereIn('sensor_id',  array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
+                foreach ($datas as $data){
+                    return $data->sensor;
+                }
             }
-        }
 
-        return view('datas.index')->with('datas', $datas);
+            return view('datas.index')->with('datas', $datas);           
+        } else {
+            return view('auth.login');
+        } 
     }
 
     /**
@@ -73,9 +77,14 @@ class DatasController extends Controller
      */
     public function show($id)
     {
-        $data = Data::find($id);
+        
+        if(auth()->check()){
+            $data = Data::find($id);
 
-        return view('datas.show')->with('data', $data);
+            return view('datas.show')->with('data', $data);
+        } else {
+            return view('auth.login');
+        } 
     }
 
     /**
@@ -109,13 +118,17 @@ class DatasController extends Controller
      */
     public function destroy($id)
     {
-        $data = Data::find($id);
+        if(auth()->check()){
+            $data = Data::find($id);
 
-        if(auth()->user()->isAdmin()){
-            $data->delete();
-            return redirect('/datas')->with('success', 'Data Deleted');
+            if(auth()->user()->isAdmin()){
+                $data->delete();
+                return redirect('/datas')->with('success', 'Data Deleted');
+            } else {
+                return redirect('/datas')->with('error', 'Unathorized Page');   
+            }        
         } else {
-            return redirect('/datas')->with('error', 'Unathorized Page');   
+                return view('auth.login');
+            } 
         }
-    }
 }
