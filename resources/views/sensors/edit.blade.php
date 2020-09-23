@@ -20,25 +20,27 @@
                     <input type="text" class="form-control" id="location" name="location" placeholder="Sensor's location" value="{{$sensor->location}}">
                     <small class="form-text text-muted">Make it descriptive</small>
                 </div>
-                <div class="form-group">
-                    <label for="user_id">Sensors owner:</label>
-                    @if(count($users) > 0)
-                    <select name="user_id" class="custom-select">    
-                            @foreach ($users as $user)
-                                <option value="{{$user->id}}"
-                                    @if($user->id == $sensor->user_id)
-                                        selected
-                                    @endif
-                                >
-                                    {{$user->name}}
-                                    @if($user->isAdmin()) 
-                                     (none)
-                                    @endif
-                                </option>
-                            @endforeach
-                        </select>
-                    @endif
-                </div>
+                @if(auth()->user()->isAdmin())
+                    <div class="form-group">
+                        <label for="user_id">Sensors owner:</label>
+                        @if(count($users) > 0)
+                        <select name="user_id" class="custom-select">    
+                                @foreach ($users as $user)
+                                    <option value="{{$user->id}}"
+                                        @if($user->id == $sensor->user_id)
+                                            selected
+                                        @endif
+                                    >
+                                        {{$user->name}}
+                                        @if($user->isAdmin()) 
+                                        (none)
+                                        @endif
+                                    </option>
+                                @endforeach
+                            </select>
+                        @endif
+                    </div>
+                @endif
                 <hr> 
                 <h6>Set your preferred  range in which the data is not an alert.</h6>
                 <div class="show_container__custom text-center">
