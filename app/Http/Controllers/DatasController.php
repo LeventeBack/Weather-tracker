@@ -23,9 +23,6 @@ class DatasController extends Controller
                 $user_id = auth()->user()->id;
                 $user = User::find($user_id);
                 $datas = DB::table('datas')->whereIn('sensor_id',  array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
-                foreach ($datas as $data){
-                    return $data->sensor;
-                }
             }
 
             return view('datas.index')->with('datas', $datas);           
