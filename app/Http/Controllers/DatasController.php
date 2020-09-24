@@ -18,11 +18,11 @@ class DatasController extends Controller
     {
         if(auth()->check()){
             if(auth()->user()->isAdmin()){
-                $datas = Data::orderBy('created_at', 'desc')->get();   
+                $datas = Data::orderBy('created_at', 'desc')->paginate(10);   
             } else {
                 $user_id = auth()->user()->id;
                 $user = User::find($user_id);
-                $datas = Data::whereIn('sensor_id', array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
+                $datas = Data::whereIn('sensor_id', array($user->sensors->getIds()))->orderBy('created_at', 'desc')->paginate(10);
             }
 
             return view('datas.index')->with('datas', $datas);           

@@ -26,6 +26,7 @@
                 @endforeach 
             </table>  
         </div>
+        {{ $datas->links() }}
     @else
         <h3>You have no available datas.</h3>
     @endif
