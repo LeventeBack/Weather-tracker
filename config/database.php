@@ -77,6 +77,7 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
+            'timezone'  => '+03:00',
         ],
 
         'sqlsrv' => [
@@ -90,6 +91,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            'timezone'  => '+03:00',
         ],
 
     ],
