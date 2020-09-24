@@ -18,7 +18,8 @@
                         <td>{{$data->temperature}}&deg;C</td>
                         <td>{{$data->humidity}}%</td>
                         <td>{{$data->pressure}}hPa</td>
-                        <td>{{$data->created_at}}
+                        <td>{{$data->created_at}}</td>
+                        <td>
                             <a href="/datas/{{$data->id}}" class="btn btn-outline-info float-right">View</a>
                         </td>
                     </tr>                        

@@ -22,7 +22,7 @@ class DatasController extends Controller
             } else {
                 $user_id = auth()->user()->id;
                 $user = User::find($user_id);
-                $datas = DB::table('datas')->whereIn('sensor_id',  array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
+                $datas = Data::whereIn('sensor_id', array($user->sensors->getIds()))->orderBy('created_at', 'desc')->get();
             }
 
             return view('datas.index')->with('datas', $datas);           
