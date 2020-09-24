@@ -49,7 +49,8 @@
     </div>
     <div class="container mb-5">
         @if(count($sensor->datas) > 0)
-            <h3 class="text-center">Latest data</h3>
+            <h3 class="text-center" id="datas">Latest readings</h3>
+
             <div class="table-responsive">
                 <table class="table mt-4 text-center">   
                     <tr class="th__images">
@@ -58,17 +59,16 @@
                         <th><img src="https://i.pinimg.com/originals/5e/11/3a/5e113a8be9457878959029e098706a81.png" alt="pressure"></th>
                         <th>Read time</th>
                     </tr>  
-                    @foreach ($sensor->datas->reverse() as $data)
-                        <tr {{--class="{{$data->getClassName($sensor->id, $data->id)}}"--}}>
+                    @foreach ($datas as $data)
                             <td>{{$data->temperature}}&deg;C</td>
                             <td>{{$data->humidity}}%</td>
                             <td>{{$data->pressure}}hPa</td>
-                            <td>{{$data->created_at}}
-                            </td>
+                            <td>{{$data->created_at}}</td>
                         </tr>                        
                     @endforeach 
                 </table>  
             </div>
+            {{$datas->fragment('datas')->links()}}
         @else
             <h3 class="text-center">There was no incoming data.</h3>
         @endif

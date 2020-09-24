@@ -163,15 +163,16 @@
             </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete this sensor. All the data will be inaccessible!
+                {{-- Are you sure you want to delete this sensor. All the data will be inaccessible! --}}
+                Currently this option is unavailable for safety reasons.
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form class="float-right" action="{{ action('SensorsController@destroy', $sensor->id) }}" method="POST">
+            {{-- <form class="float-right" action="{{ action('SensorsController@destroy', $sensor->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+            </form> --}}
             </div>
         </div>
         </div>

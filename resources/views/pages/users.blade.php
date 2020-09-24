@@ -25,6 +25,7 @@
                 @endforeach 
             </table>
         </div>  
+        {{$users->links()}}
     @else
         <h3>You have no available sensors</h3>
     @endif

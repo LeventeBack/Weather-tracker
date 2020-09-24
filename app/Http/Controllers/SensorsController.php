@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sensor;
 use App\User;
+use App\Data;
 
 class SensorsController extends Controller
 {
@@ -107,8 +108,10 @@ class SensorsController extends Controller
         $sensor = Sensor::find($id);
         
         // Check for correct user
-        if($sensor && (auth()->user()->id === $sensor->user_id || auth()->user()->isAdmin())) {
-            return view('sensors.show')->with('sensor', $sensor);
+        if($sensor && (auth()->user()->id === $sensor->user_id || auth()->user()->isAdmin())) {   
+            $datas = Data::where('sensor_id', $id)->orderBy('created_at', 'desc')->paginate(10);
+
+            return view('sensors.show')->with(['datas' => $datas, 'sensor' => $sensor]);
         }
         return redirect('/sensors')->with('error', 'Unathorized Page');
         

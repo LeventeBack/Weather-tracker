@@ -33,9 +33,7 @@ class PagesController extends Controller
             return redirect('/')->with('error', 'Unathorized Page');
         }
 
-        $users = User::cursor()->filter(function ($user) {
-            return !$user->isAdmin();
-        });
+        $users = User::where('id', '<>', 1)->orderBy('name', 'asc')->paginate(10);
         return view('pages.users')->with('users', $users);
     }
 
