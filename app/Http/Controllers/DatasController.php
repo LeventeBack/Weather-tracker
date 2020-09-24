@@ -54,16 +54,20 @@ class DatasController extends Controller
             'sensor_id' => 'required',
             'temperature' => 'required',
             'humidity' => 'required',
-            'pressure' => 'required'
+            'pressure' => 'required',
         ]);
 
-        $data = new Data();
-        $data->sensor_id = $request->input('sensor_id'); 
-        $data->temperature = $request->input('temperature'); 
-        $data->humidity = $request->input('humidity'); 
-        $data->pressure = $request->input('pressure'); 
-
-        $data->save();
+        if($request->input('api_key') === env('API_KEY')){
+            $data = new Data();
+            $data->sensor_id = $request->input('sensor_id'); 
+            $data->temperature = $request->input('temperature'); 
+            $data->humidity = $request->input('humidity'); 
+            $data->pressure = $request->input('pressure'); 
+  
+            $data->save();            
+        } else {
+            return 403;
+        }
     }
 
     /**
