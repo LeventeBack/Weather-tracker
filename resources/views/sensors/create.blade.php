@@ -5,10 +5,10 @@
         <form action="{{ action('SensorsController@store') }}" method="POST" >
             @csrf
             <div class="card-body">
-                <a href="/sensors" class="btn btn-outline-info">Back</a>
+                <a href="/sensors" class="btn btn-outline-info"><i class="fas fa-arrow-left mr-1"></i> Back</a>
                 <h3 class="text-center">Create Sensor</h3>
                 <div class="form-group">
-                    <label for="name">Name:<span>*</span></label>
+                    <label for="name">Name:</label>
                     <input name="name" type="text" class="form-control" id="name" placeholder="Sensor's name">
                 </div>
                 <div class="form-group">
@@ -133,7 +133,7 @@
                     <span>Preferred color for charts: </span>
                     <input type="color" name="color">
                     <br>
-                    <button type="submit" class="btn btn-info mt-3 px-3 ">Create Sensor</button>    
+                    <button type="submit" class="btn btn-info mt-3 px-3 "><i class="fas fa-plus mr-1"></i> Create Sensor</button>    
                 </div>            
             </div>
         </form>

@@ -11,6 +11,7 @@
                     <th><img src="https://i.pinimg.com/originals/dd/08/91/dd0891ab46670f3a3358c97599342f3f.png" alt="humidity"></th>
                     <th><img src="https://i.pinimg.com/originals/5e/11/3a/5e113a8be9457878959029e098706a81.png" alt="pressure"></th>
                     <th>Read time</th>
+                    <th></th>
                 </tr>  
                 @foreach ($datas as $data)
                     <tr>
@@ -20,7 +21,7 @@
                         <td>{{$data->pressure}}hPa</td>
                         <td>{{$data->created_at}}</td>
                         <td>
-                            <a href="/datas/{{$data->id}}" class="btn btn-outline-info float-right">View</a>
+                            <a href="/datas/{{$data->id}}" class="btn btn-outline-info float-right"><i class="fas fa-eye mr-1"></i> View Details</a>
                         </td>
                     </tr>                        
                 @endforeach 

@@ -3,8 +3,9 @@
 @section('content')
     <div class="card border-info mb-5">
         <div class="card-body">
-            <a href="/datas" class="btn btn-outline-info text-left">Back</a>
+            <a href="/datas" class="btn btn-outline-info text-left"><i class="fas fa-arrow-left mr-1"></i> Back</a>
             <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-trash mr-1"></i>
                 Delete Data
             </button>
         

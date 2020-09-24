@@ -13,50 +13,56 @@
                 @if(!Auth::guest())
                     @if(Auth::user()->isAdmin())
                         <li class="nav-item">
-                            <a class="nav-link" href="/datas">Latest data</a>
+                            <a class="nav-link mx-3" href="/datas"><i class="far fa-clock mr-1"></i> Latest data</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/users">Users</a>
+                            <a class="nav-link mx-3" href="/users"><i class="fas fa-users mr-1"></i> Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/sensors">Sensors</a>
+                            <a class="nav-link mx-3" href="/sensors"><i class="fas fa-satellite-dish mr-2"></i>Sensors</a>
                         </li>
                     @else 
                         <li class="nav-item">
-                            <a class="nav-link" href="/datas">Latest data</a>
+                            <a class="nav-link mx-3" href="/datas"><i class="far fa-clock mr-1"></i> Latest data</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/charts">Charts</a>
+                            <a class="nav-link mx-3" href="/charts"><i class="far fa-chart-bar mr-1"></i> Charts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/sensors">My Sensors</a>
+                            <a class="nav-link mx-3" href="/sensors"><i class="fas fa-satellite-dish mr-1"></i> My Sensors</a>
                         </li>
                     @endif
                 @endif
             </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <i class="fas fa-sign-in-alt  mr-1"></i>
+                            {{ __('Login') }}
+                        </a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">
+                                <i class="fas fa-user-plus mr-1"></i>
+                                {{ __('Register') }}
+                            </a>
                         </li>
                     @endif
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fas fa-user-alt mr-1"></i>
                             {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                               <i class="fas fa-sign-out-alt mr-1"></i>
                                 {{ __('Logout') }}
                             </a>
 

@@ -4,7 +4,7 @@
     <div class="card border-info mb-5">
         <div class="item-color" style="background-color:{{$sensor->color}}"></div>
         <div class="card-body"> 
-            <a href="/sensors" class="btn btn-outline-info text-left ">Back</a>
+            <a href="/sensors" class="btn btn-outline-info text-left "><i class="fas fa-arrow-left mr-1"></i> Back</a>
            
             <h2 class="text-center d-block mx-auto">Settings</h2><br>
             <h4 class="text-center">Name: <strong>{{$sensor->name}}</strong></h4>  
@@ -42,7 +42,7 @@
             </div> 
             
             <div class="text-center">
-                <a href="/sensors/{{$sensor->id}}/edit" class="btn btn-info mt-3 px-3 text-center custom__center">Edit Settings</a>    
+                <a href="/sensors/{{$sensor->id}}/edit" class="btn btn-info mt-3 px-3 text-center custom__center"><i class="fas fa-edit mr-1back"></i> Edit Settings</a>    
             </div>      
        
         </div>

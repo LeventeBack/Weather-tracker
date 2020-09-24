@@ -6,9 +6,9 @@
             @method('PUT')
             @csrf
             <div class="card-body">
-                <a href="/sensors/{{$sensor->id}}" class="btn btn-outline-info">Back</a>
+                <a href="/sensors/{{$sensor->id}}" class="btn btn-outline-info"><i class="fas fa-arrow-left mr-1"></i> Back</a>
                 <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
-                    Delete Sensor
+                   <i class="fas fa-trash mr-1"></i> Delete Sensor
                 </button>
                 <h3 class="text-center">Edit Sensor</h3>
                 <div class="form-group">
@@ -145,7 +145,7 @@
                     <span>Preferred color for charts: </span>
                     <input type="color" name="color" value="{{$sensor->color}}">
                     <br>
-                    <button type="submit" class="btn btn-info mt-3 px-3 ">Save Settings</button>    
+                    <button type="submit" class="btn btn-info mt-3 px-3 "><i class="fas fa-save mr-1"></i> Save Settings</button>    
                 </div>            
             </div>
         </form>

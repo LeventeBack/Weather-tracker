@@ -2,8 +2,7 @@
 
 @section('content')
     @if(count($users) > 0)
-        <h2>Users list</h2>
-        
+        <h2>Users list</h2>        
         <div class="table-responsive">
             <table class="table mt-4">   
                 <tr class="table-info">
@@ -19,7 +18,7 @@
                         <td>{{$user->created_at}}</td>
                         <td>
                             {{count($user->sensors)}}
-                            <a href="/users/{{$user->id}}" class="btn btn-outline-info float-right">View</a>
+                            <a href="/users/{{$user->id}}" class="btn btn-outline-info float-right"><i class="fas fa-eye mr-1"></i> View</a> 
                         </td>
                     </tr>                        
                 @endforeach 

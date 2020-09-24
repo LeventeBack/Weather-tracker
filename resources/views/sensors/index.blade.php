@@ -5,10 +5,13 @@
         @isset($showback)
             <a href="/users" class="btn btn-outline-info float-left ">Back</a>
         @endisset
-        <a href="/sensors/create" class="btn btn-info">Add Sensors</a>
+        
+        @if(auth()->user()->isAdmin())
+            <a href="/sensors/create" class="btn btn-info"><i class="fas fa-plus mr-1"></i> Add Sensors</a>
+        @endif
     </div>
     @if(count($sensors) > 0)
-        <h2>Sensors list</h2>
+        <h2 class="mt-3">Sensors list</h2>
         
         <div class="table-responsive">
             <table class="table mt-4">   
@@ -37,7 +40,7 @@
                             @else
                                 There was no incoming data.
                             @endif
-                            <a href="/sensors/{{$sensor->id}}" class="btn btn-outline-info float-right">View Details</a>
+                            <a href="/sensors/{{$sensor->id}}" class="btn btn-outline-info float-right"><i class="fas fa-eye mr-1"></i> View Details</a>
                         </td>
                     </tr>                        
                 @endforeach 
