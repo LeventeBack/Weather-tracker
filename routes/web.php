@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PagesController@index');
 
 Route::get('/charts', 'PagesController@charts');
+Route::get('/charts/data', 'PagesController@chartData');
 
 Route::get('/users', 'PagesController@users');
 Route::get('/users/{id}', 'PagesController@singleuser');

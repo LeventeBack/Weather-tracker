@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Sensor;
+use DB;
 
 class PagesController extends Controller
 { 
@@ -14,16 +16,11 @@ class PagesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['index']]);
     }
 
     public function index() {
         return view('pages.index');
-    }
-
-    // User only
-    public function charts() {
-        return view('pages.charts');
     }
 
     //Admin only
@@ -47,5 +44,60 @@ class PagesController extends Controller
         $sensors = $user->sensors;
         $showback = true;
         return view('sensors.index')->with(['sensors' => $sensors, 'showback' => $showback]);
+    }    
+    
+    // User only
+    public function charts() {
+        return view('pages.charts');
+    }
+
+    public function chartData(Request $request) {        
+        $requestIds = $request->input('sensorIds');
+        $day = $request->input('date');
+
+        $start_time = date('Y-m-d H:i:s',strtotime($day));
+        $end_time = date('Y-m-d H:i:s',strtotime($day. '23:59:59'));
+        //$sensors = Sensor::whereIn('id', $requestIds)->get();
+
+        $all_data = array(
+            $temp_data = array(),
+            $humid_data = array(),
+            $press_data = array()
+        );
+
+        // foreach ($requestIds as $id) {
+            $try = DB::table('datas')
+                ->whereBetween('created_at', [$start_time, $end_time])
+                ->where('sensor_id', 1)
+                // ->where('sensor_id', $id)
+                ->orderBy('created_at', 'ASC')
+                ->get();
+        //     array_push($all_data[0], $try);
+        // }
+      
+        return response()->json([
+            'data' => $all_data,
+            'try' => $try
+        ]);
+    }
+}
+
+class Axes {
+    function __construct($xAxis, $yAxis){
+        $this->x=$xAxis;
+        $this->y=$yAxis;
+    }
+}
+
+class DataSetItem {
+    public $fill = false; 
+    public $showLine = true; 
+    public $borderWidth = 1;
+
+    function __construct($labelName, $data, $bgColor, $borderColor){
+        $this->label = $labelName;
+        $this->data = $data;
+        $this->backgroundColor = $bgColor;
+        $this->borderColor = $borderColor;
     }
 }

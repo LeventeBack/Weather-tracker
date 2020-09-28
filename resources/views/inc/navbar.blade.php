@@ -13,23 +13,23 @@
                 @if(!Auth::guest())
                     @if(Auth::user()->isAdmin())
                         <li class="nav-item">
-                            <a class="nav-link mx-3" href="/datas"><i class="far fa-clock mr-1"></i> Latest data</a>
+                            <a class="nav-link mx-1" href="/datas"><i class="far fa-clock mr-1"></i> Latest data</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-3" href="/users"><i class="fas fa-users mr-1"></i> Users</a>
+                            <a class="nav-link mx-1" href="/users"><i class="fas fa-users mr-1"></i> Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-3" href="/sensors"><i class="fas fa-satellite-dish mr-2"></i>Sensors</a>
+                            <a class="nav-link mx-1" href="/sensors"><i class="fas fa-satellite-dish mr-2"></i>Sensors</a>
                         </li>
                     @else 
                         <li class="nav-item">
-                            <a class="nav-link mx-3" href="/datas"><i class="far fa-clock mr-1"></i> Latest data</a>
+                            <a class="nav-link mx-1" href="/datas"><i class="far fa-clock mr-1"></i> Latest data</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-3" href="/charts"><i class="far fa-chart-bar mr-1"></i> Charts</a>
+                            <a class="nav-link mx-1" href="/charts"><i class="far fa-chart-bar mr-1"></i> Charts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-3" href="/sensors"><i class="fas fa-satellite-dish mr-1"></i> My Sensors</a>
+                            <a class="nav-link mx-1" href="/sensors"><i class="fas fa-satellite-dish mr-1"></i> My Sensors</a>
                         </li>
                     @endif
                 @endif
@@ -54,7 +54,7 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle  mx-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <i class="fas fa-user-alt mr-1"></i>
                             {{ Auth::user()->name }}
                         </a>
