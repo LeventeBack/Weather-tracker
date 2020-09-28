@@ -65,19 +65,36 @@ class PagesController extends Controller
             $press_data = array()
         );
 
-        // foreach ($requestIds as $id) {
-            $try = DB::table('datas')
+        foreach ($requestIds as $id) {
+            $raw_data = DB::table('datas')
                 ->whereBetween('created_at', [$start_time, $end_time])
-                ->where('sensor_id', 1)
-                // ->where('sensor_id', $id)
+                ->where('sensor_id', $id)
                 ->orderBy('created_at', 'ASC')
                 ->get();
-        //     array_push($all_data[0], $try);
-        // }
+
+            $sensor = Sensor::find($id);
+
+            $single_temp = $single_humid = $single_press = array();
+
+            foreach($raw_data as $data){
+                $dataObj = new Axes(date('H:i', strtotime($data->created_at)), $data->temperature);
+                array_push($single_temp, $dataObj); 
+                $dataObj = new Axes(date('H:i', strtotime($data->created_at)), $data->humidity);
+                array_push($single_humid, $dataObj); 
+                $dataObj = new Axes(date('H:i', strtotime($data->created_at)), $data->pressure);
+                array_push($single_press, $dataObj); 
+            }
+            $tempObj  = new DataSetItem($sensor->name, $single_temp, $sensor->color, $sensor->color );
+            $humidObj  = new DataSetItem($sensor->name, $single_humid, $sensor->color, $sensor->color );
+            $pressObj  = new DataSetItem($sensor->name, $single_press, $sensor->color, $sensor->color );
+
+            array_push($all_data[0], $tempObj);
+            array_push($all_data[1], $humidObj);
+            array_push($all_data[2], $pressObj);  
+        }
       
         return response()->json([
-            'data' => $all_data,
-            'try' => $try
+            'data' => $all_data
         ]);
     }
 }
@@ -97,7 +114,7 @@ class DataSetItem {
     function __construct($labelName, $data, $bgColor, $borderColor){
         $this->label = $labelName;
         $this->data = $data;
-        $this->backgroundColor = $bgColor;
+        $this->backgroundColor = 'rgba('. $bgColor . ', 0.4)';
         $this->borderColor = $borderColor;
     }
 }
