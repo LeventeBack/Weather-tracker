@@ -14,8 +14,7 @@
             </label>
         </div>                         
 
-        <div class="sensor-selection-container">
-            <?php echo getSensorCheckboxes()?>            
+        <div class="sensor-selection-container">           
 
         </div>                   
 

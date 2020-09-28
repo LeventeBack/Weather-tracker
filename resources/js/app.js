@@ -73,19 +73,19 @@ $(document).ready(function () {
             });
         }
     })*/
-
-    $('#select-all').on('change', function () {
-        let checkElements = document.querySelectorAll('.sensor-selection-container .checkbox-container input')
-        if ($(this).is(":checked")) {
-            checkElements.forEach(checkbox => {
-                checkbox.checked = true
-            })
-        } else {
-            checkElements.forEach(checkbox => {
-                checkbox.checked = false
-            })
-        }
-    })
+    /*
+        $('#select-all').on('change', function () {
+            let checkElements = document.querySelectorAll('.sensor-selection-container .checkbox-container input')
+            if ($(this).is(":checked")) {
+                checkElements.forEach(checkbox => {
+                    checkbox.checked = true
+                })
+            } else {
+                checkElements.forEach(checkbox => {
+                    checkbox.checked = false
+                })
+            }
+        })*/
 
     function chartItTemp(data) {
         const ctx = document.getElementById('tempChart').getContext('2d');

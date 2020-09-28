@@ -10940,3 +10940,12 @@ a.text-dark:hover {
   max-width: 100px;
 }
 
+/* CHARTS */
+
+.chart-container {
+  width: 100%;
+  height: 85vh;
+  min-height: 300px;
+  margin-bottom: 50px;
+}
+
