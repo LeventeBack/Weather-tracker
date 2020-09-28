@@ -22,13 +22,13 @@ $(document).ready(function () {
                 date: today,
                 sensorIds: [1, 2, 3]
             },
-            //contentType: "json",
             dataType: 'json',
             success: function (data) {
-                // chartItTemp(data[0]);
-                // chartItHumid(data[1]);
-                // chartItPress(data[2]);
-                console.log(data)
+                data = data.data
+                chartItTemp(data[0]);
+                chartItHumid(data[1]);
+                chartItPress(data[2]);
+                console.log(data[0])
             },
             error: function (err) {
                 console.log(err.responseText);
@@ -87,7 +87,7 @@ $(document).ready(function () {
         }
     })
 
-    function chartItTemp(data, time) {
+    function chartItTemp(data) {
         const ctx = document.getElementById('tempChart').getContext('2d');
         tempChart = new Chart(ctx, {
             type: 'line',
@@ -129,7 +129,7 @@ $(document).ready(function () {
         });
     }
 
-    function chartItHumid(data, time) {
+    function chartItHumid(data) {
 
         const ctx = document.getElementById('humidChart').getContext('2d');
 
@@ -173,7 +173,7 @@ $(document).ready(function () {
         });
     }
 
-    function chartItPress(data, time) {
+    function chartItPress(data) {
         const ctx = document.getElementById('pressChart').getContext('2d');
         pressChart = new Chart(ctx, {
             type: 'line',

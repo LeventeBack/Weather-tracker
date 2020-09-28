@@ -84,9 +84,9 @@ class PagesController extends Controller
                 $dataObj = new Axes(date('H:i', strtotime($data->created_at)), $data->pressure);
                 array_push($single_press, $dataObj); 
             }
-            $tempObj  = new DataSetItem($sensor->name, $single_temp, $sensor->color, $sensor->color );
-            $humidObj  = new DataSetItem($sensor->name, $single_humid, $sensor->color, $sensor->color );
-            $pressObj  = new DataSetItem($sensor->name, $single_press, $sensor->color, $sensor->color );
+            $tempObj  = new DataSetItem($sensor->name, $single_temp, $sensor->color);
+            $humidObj  = new DataSetItem($sensor->name, $single_humid, $sensor->color );
+            $pressObj  = new DataSetItem($sensor->name, $single_press, $sensor->color);
 
             array_push($all_data[0], $tempObj);
             array_push($all_data[1], $humidObj);
@@ -111,10 +111,10 @@ class DataSetItem {
     public $showLine = true; 
     public $borderWidth = 1;
 
-    function __construct($labelName, $data, $bgColor, $borderColor){
+    function __construct($labelName, $data, $color){
         $this->label = $labelName;
         $this->data = $data;
-        $this->backgroundColor = 'rgba('. $bgColor . ', 0.4)';
-        $this->borderColor = $borderColor;
+        $this->backgroundColor = $color;
+        $this->borderColor = $color;
     }
 }
