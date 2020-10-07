@@ -10924,7 +10924,7 @@ a.text-dark:hover {
   height: 2.5rem;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.5);
-  background-color: salmon;
+  background-color: var(--cyan);
   right: 5%;
   top: 1.2rem;
 }
@@ -10947,5 +10947,81 @@ a.text-dark:hover {
   height: 85vh;
   min-height: 300px;
   margin-bottom: 50px;
+}
+
+#chart-form > .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CHECKBOX-LIST */
+
+.checkbox-list {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 700px;
+}
+
+.checkbox-list-item {
+  margin: 0 10px;
+}
+
+/* CHECKBOX */
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.styled-checkbox + label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+  background: white;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.39);
+}
+
+.styled-checkbox:hover + label:before {
+  background-color: var(--cyan);
+}
+
+.styled-checkbox:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.styled-checkbox:checked + label:before {
+  background-color: var(--cyan);
+}
+
+.styled-checkbox:disabled + label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+.styled-checkbox:disabled + label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+
+.styled-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  transform: rotate(45deg);
 }
 

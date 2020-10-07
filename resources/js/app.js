@@ -1,8 +1,11 @@
 require('./bootstrap');
 
+
+
 $(document).ready(function () {
 
     let tempChart, humidChart, pressChart;
+    const chartPathtext = '.checkbox-list .checkbox-list-item input';
 
     const time = [];
     for (let i = 0; i < 24; i++) {
@@ -13,7 +16,7 @@ $(document).ready(function () {
 
     function chartLoader() {
         let today = new Date().toISOString().substr(0, 10);
-        //document.querySelector("#chart_date").value = today;
+        document.querySelector("#chart_date").value = today;
         //checkCheckboxes()
         $.ajax({
             url: "/charts/data",
@@ -28,7 +31,6 @@ $(document).ready(function () {
                 chartItTemp(data[0]);
                 chartItHumid(data[1]);
                 chartItPress(data[2]);
-                console.log(data[0])
             },
             error: function (err) {
                 console.log(err.responseText);
@@ -37,55 +39,57 @@ $(document).ready(function () {
     }
     chartLoader();
 
-    /*$('#chart-form').on('submit', (event) => {
+    $('#chart-form').on('submit', (event) => {
         event.preventDefault();
         //$('#chart-error-message').text('')
         const date = $('#chart_date').val();
-        let checkElements = document.querySelectorAll('.sensor-selection-container .checkbox-container input')
-        let loactionIdArray = [];
+        let checkElements = document.querySelectorAll(chartPathtext)
+        let sensorIds = [];
         for (let i = 0; i < checkElements.length; i++) {
             if (checkElements[i].checked) {
-                loactionIdArray.push(checkElements[i].value)
+                sensorIds.push(parseInt(checkElements[i].value))
             }
         }
-        if (loactionIdArray.length === 0) {
-            $('#chart-error-message').text('Trebuie să alegi cel puțin un senzor!')
+        if (sensorIds.length === 0) {
+            $('#chart-error-message').text('You must select at least one sensor!')
         } else {
-            loactionIdArray = JSON.stringify(loactionIdArray);
             if (tempChart != undefined) {
                 tempChart.destroy();
                 humidChart.destroy();
                 pressChart.destroy();
             }
             $.ajax({
-                url: "fetch_data.php",
-                method: "POST",
+                url: "/charts/data",
+                method: "GET",
                 data: {
                     date: date,
-                    loactionIdArray: loactionIdArray
+                    sensorIds: sensorIds
                 },
                 dataType: "json",
                 success: function (data) {
+                    data = data.data
                     chartItTemp(data[0]);
                     chartItHumid(data[1]);
                     chartItPress(data[2]);
+                },
+                error: function (err) {
+                    console.log(err.responseText);
                 }
             });
         }
-    })*/
-    /*
-        $('#select-all').on('change', function () {
-            let checkElements = document.querySelectorAll('.sensor-selection-container .checkbox-container input')
-            if ($(this).is(":checked")) {
-                checkElements.forEach(checkbox => {
-                    checkbox.checked = true
-                })
-            } else {
-                checkElements.forEach(checkbox => {
-                    checkbox.checked = false
-                })
-            }
-        })*/
+    })
+    $('#select-all').on('change', function () {
+        let checkElements = document.querySelectorAll(chartPathtext)
+        if ($(this).is(":checked")) {
+            checkElements.forEach(checkbox => {
+                checkbox.checked = true
+            })
+        } else {
+            checkElements.forEach(checkbox => {
+                checkbox.checked = false
+            })
+        }
+    })
 
     function chartItTemp(data) {
         const ctx = document.getElementById('tempChart').getContext('2d');
