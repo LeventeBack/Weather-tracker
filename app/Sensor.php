@@ -13,8 +13,4 @@ class Sensor extends Model
     public function datas(){
         return $this->hasMany('App\Data');
     }
-
-    public function getIds() {
-        return [1,2,3];
-    }
 }

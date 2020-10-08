@@ -23,11 +23,12 @@ class DatasController extends Controller
                 $user_id = auth()->user()->id;
                 $user = User::find($user_id);
                 if(count($user->sensors) > 0){
-                    $datas = Data::whereIn('sensor_id', array($user->sensors->getIds()))->orderBy('created_at', 'desc')->paginate(10);           
+                    //return $user->getSensorIds();
+                    $datas = Data::whereIn('sensor_id', $user->getSensorIds())->orderBy('created_at', 'desc')->paginate(10);
+                    
                 } else {
                     $datas = [];
                 }
-
             }
 
             return view('datas.index')->with('datas', $datas);           

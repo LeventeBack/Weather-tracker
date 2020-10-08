@@ -44,4 +44,13 @@ class User extends Authenticatable
     public function sensors(){
         return $this->hasMany('App\Sensor');
     }
+
+    public function getSensorIds() {
+        $sensors = $this->sensors;
+        $ids = array();
+        foreach($this->sensors as $sensor){
+            array_push($ids, $sensor->id);
+        }
+        return $ids;
+    }
 }
