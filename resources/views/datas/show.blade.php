@@ -16,26 +16,32 @@
             <div class="show_container__custom text-center">
                 <div class="item_group">
                     <img src="https://i.pinimg.com/originals/b2/36/e4/b236e43db8b644aaee18e4fb3060adc9.png" alt="temperature">
-                    <div class="details">
+                    <div class="alert {{ $data->getRangeClassName($data->temperature, $data->sensor->min_temperature, $data->sensor->max_temperature) }}">
                         <h5>Air Temperature</h5>
                         <hr>
                         <h5>{{$data->temperature}} &deg;C</h5>
+                        <small class="more">The air temperature is more than {{$data->sensor->max_temperature}}&deg;C.</small>
+                        <small class="less">The air temperature is less than {{$data->sensor->min_temperature}}&deg;C.</small>
                     </div>
                 </div>
                 <div class="item_group">
                     <img src="https://i.pinimg.com/originals/dd/08/91/dd0891ab46670f3a3358c97599342f3f.png" alt="humidity">
-                    <div class="details">
+                    <div class="alert {{ $data->getRangeClassName($data->humidity, $data->sensor->min_humidity, $data->sensor->max_humidity) }}">
                         <h5>Air Humidity</h5>
                         <hr>
                         <h5>{{$data->humidity}} %</h5>
+                        <small class="less">The air humidity is less than {{$data->sensor->min_humidity}}%.</small>
+                        <small class="more">The air humidity is more than {{$data->sensor->max_humidity}}%.</small>
                     </div>
                 </div>
                 <div class="item_group">
                     <img src="https://i.pinimg.com/originals/5e/11/3a/5e113a8be9457878959029e098706a81.png" alt="pressure">
-                    <div class="details">
+                    <div class="alert {{ $data->getRangeClassName($data->pressure, $data->sensor->min_pressure, $data->sensor->max_pressure) }}">
                         <h5>Air Pressure</h5>
                         <hr>
                         <h5>{{$data->pressure}} hPa</h5>
+                        <small class="more">The air pressure is more than {{$data->sensor->max_pressure}}hPa.</small>
+                        <small class="less">The air pressure is less than {{$data->sensor->min_pressure}}hPa.</small>
                     </div>
                 </div>
             </div> 
@@ -48,27 +54,27 @@
     </div> 
 
      <!-- Modal -->
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this data? This action can be undone!
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form class="float-right" action="{{ action('DatasController@destroy', $data->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                </div>
             </div>
-            <div class="modal-body">
-                Are you sure you want to delete this data? This action can be undone!
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form class="float-right" action="{{ action('DatasController@destroy', $data->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-            </div>
-        </div>
         </div>
     </div>
 @endsection

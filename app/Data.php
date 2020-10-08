@@ -13,7 +13,7 @@ class Data extends Model
         return $this->belongsTo('App\Sensor');
     }
 
-    public function getClassName(){
+    public function getTableClassName(){
         $sensor = Sensor::find($this->sensor_id);
         $classString = "";
         if($this->isError()){
@@ -41,5 +41,15 @@ class Data extends Model
     private function isError(){
         $sensor = Sensor::find($this->sensor_id);
         return ($sensor->max_temperature < $this->temperature || $sensor->min_temperature > $this->temperature) || ($sensor->max_humidity < $this->humidity || $sensor->min_humidity > $this->humidity) || $sensor->max_pressure < $this->pressure || $sensor->min_pressure > $this->pressure;
+    }
+
+    public function getRangeClassName($value, $min, $max){ 
+        if($value > $max) {
+            return " alert-danger more";
+        }
+        else if($value < $min) {
+            return " alert-danger less";
+        }
+        return "";
     }
 }

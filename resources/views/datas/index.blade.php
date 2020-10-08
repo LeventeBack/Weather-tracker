@@ -14,7 +14,7 @@
                     <th></th>
                 </tr>  
                 @foreach ($datas as $data)
-                    <tr class="{{$data->getClassName()}}">
+                    <tr class="{{$data->getTableClassName()}}">
                         <td>{{$data->sensor->name}}</td>
                         <td class="tmp">{{$data->temperature}}&deg;C</td>
                         <td class="hmd">{{$data->humidity}}%</td>

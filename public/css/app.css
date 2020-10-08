@@ -11042,3 +11042,16 @@ tr.table-danger.prs > td.prs {
   color: #a80000;
 }
 
+.alert small.less,
+.alert small.more {
+  display: none !important;
+}
+
+.alert.less small.less {
+  display: inline !important;
+}
+
+.alert.more small.more {
+  display: inline !important;
+}
+

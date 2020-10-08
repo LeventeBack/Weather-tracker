@@ -23,7 +23,6 @@ class DatasController extends Controller
                 $user_id = auth()->user()->id;
                 $user = User::find($user_id);
                 if(count($user->sensors) > 0){
-                    //return $user->getSensorIds();
                     $datas = Data::whereIn('sensor_id', $user->getSensorIds())->orderBy('created_at', 'desc')->paginate(10);
                     
                 } else {

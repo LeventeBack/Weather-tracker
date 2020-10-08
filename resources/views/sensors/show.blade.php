@@ -60,7 +60,7 @@
                         <th>Read time</th>
                     </tr>  
                     @foreach ($datas as $data)
-                        <tr class="{{$data->getClassName()}}">
+                        <tr class="{{$data->getTableClassName()}}">
                             <td class="tmp">{{$data->temperature}}&deg;C</td>
                             <td class="hmd">{{$data->humidity}}%</td>
                             <td class="prs">{{$data->pressure}}hPa</td>
