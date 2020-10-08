@@ -14,14 +14,14 @@
                     <th></th>
                 </tr>  
                 @foreach ($datas as $data)
-                    <tr>
+                    <tr class="{{$data->getClassName()}}">
                         <td>{{$data->sensor->name}}</td>
-                        <td>{{$data->temperature}}&deg;C</td>
-                        <td>{{$data->humidity}}%</td>
-                        <td>{{$data->pressure}}hPa</td>
+                        <td class="tmp">{{$data->temperature}}&deg;C</td>
+                        <td class="hmd">{{$data->humidity}}%</td>
+                        <td class="prs">{{$data->pressure}}hPa</td>
                         <td>{{$data->created_at}}</td>
-                        <td>
-                            <a href="/datas/{{$data->id}}" class="btn btn-outline-info float-right"><i class="fas fa-eye mr-1"></i> View Details</a>
+                        <td class="">
+                        <a href="/datas/{{$data->id}}" class="btn float-right {{$data->getButtonClassName()}}"><i class="fas fa-eye mr-1"></i> View Details</a>
                         </td>
                     </tr>                        
                 @endforeach 

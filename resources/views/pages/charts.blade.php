@@ -2,8 +2,7 @@
 
 @section('content')
     @if(count($sensors) > 0)
-        {{-- <div id="chart-error-message" class="alert alert-danger">
-        </div> --}}
+        {{-- <div id="chart-error-message" class="alert alert-danger"></div> --}}
         <form id="chart-form">
             <div class="form-group">
                 <h3> Select a date: </h3>

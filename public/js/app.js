@@ -37277,9 +37277,9 @@ $(document).ready(function () {
     }
   }
 
-  function chartLoader() {
+  $('#chart_date').ready(function () {
     var today = new Date().toISOString().substr(0, 10);
-    document.querySelector("#chart_date").value = today; //checkCheckboxes()
+    $("#chart_date").val(today); //checkCheckboxes()
 
     $.ajax({
       url: "/charts/data",
@@ -37299,9 +37299,7 @@ $(document).ready(function () {
         console.log(err.responseText);
       }
     });
-  }
-
-  chartLoader();
+  });
   $('#chart-form').on('submit', function (event) {
     event.preventDefault(); //$('#chart-error-message').text('')
 
@@ -37359,129 +37357,135 @@ $(document).ready(function () {
   });
 
   function chartItTemp(data) {
-    var ctx = document.getElementById('tempChart').getContext('2d');
-    tempChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: time,
-        datasets: data
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: false,
-              callback: function callback(value) {
-                return value + '°C';
+    if (document.getElementById("tempChart") !== null) {
+      var ctx = document.getElementById('tempChart').getContext('2d');
+      tempChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: time,
+          datasets: data
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false,
+                callback: function callback(value) {
+                  return value + '°C';
+                }
               }
-            }
-          }]
-        },
-        title: {
-          display: true,
-          text: 'Temperatura ambiantă',
-          fontSize: 30
-        },
-        tooltips: {
-          backgroundColor: 'rgba(0,0,0,0.6)',
-          titleFontColor: 'rgba(0, 0, 0, 0)',
-          titleFontSize: 0,
-          titleMarginBottom: 3,
-          bodyFontSize: 15,
-          callbacks: {
-            label: function label(tooltipItems, data) {
-              return '  ' + data.datasets[tooltipItems.datasetIndex].label + '  h: ' + data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index].x + '  ' + tooltipItems.yLabel + '°C';
+            }]
+          },
+          title: {
+            display: true,
+            text: 'Temperatura ambiantă',
+            fontSize: 30
+          },
+          tooltips: {
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            titleFontColor: 'rgba(0, 0, 0, 0)',
+            titleFontSize: 0,
+            titleMarginBottom: 3,
+            bodyFontSize: 15,
+            callbacks: {
+              label: function label(tooltipItems, data) {
+                return '  ' + data.datasets[tooltipItems.datasetIndex].label + '  h: ' + data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index].x + '  ' + tooltipItems.yLabel + '°C';
+              }
             }
           }
         }
-      }
-    });
+      });
+    }
   }
 
   function chartItHumid(data) {
-    var ctx = document.getElementById('humidChart').getContext('2d');
-    humidChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: time,
-        datasets: data
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: false,
-              callback: function callback(value, index, values) {
-                return value + '%';
+    if (document.getElementById("humidChart") !== null) {
+      var ctx = document.getElementById('humidChart').getContext('2d');
+      humidChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: time,
+          datasets: data
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false,
+                callback: function callback(value, index, values) {
+                  return value + '%';
+                }
               }
-            }
-          }]
-        },
-        title: {
-          display: true,
-          text: 'Umiditate relativă',
-          fontSize: 30
-        },
-        tooltips: {
-          backgroundColor: 'rgba(0,0,0,0.6)',
-          titleFontColor: 'rgba(0, 0, 0, 0)',
-          titleFontSize: 0,
-          titleMarginBottom: 3,
-          bodyFontSize: 15,
-          callbacks: {
-            label: function label(tooltipItems, data) {
-              return '  ' + data.datasets[tooltipItems.datasetIndex].label + '  h: ' + data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index].x + '  ' + tooltipItems.yLabel + '%';
+            }]
+          },
+          title: {
+            display: true,
+            text: 'Umiditate relativă',
+            fontSize: 30
+          },
+          tooltips: {
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            titleFontColor: 'rgba(0, 0, 0, 0)',
+            titleFontSize: 0,
+            titleMarginBottom: 3,
+            bodyFontSize: 15,
+            callbacks: {
+              label: function label(tooltipItems, data) {
+                return '  ' + data.datasets[tooltipItems.datasetIndex].label + '  h: ' + data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index].x + '  ' + tooltipItems.yLabel + '%';
+              }
             }
           }
         }
-      }
-    });
+      });
+    }
   }
 
   function chartItPress(data) {
-    var ctx = document.getElementById('pressChart').getContext('2d');
-    pressChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: time,
-        datasets: data
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: false,
-              callback: function callback(value, index, values) {
-                return value + ' hpa';
+    if (document.getElementById("humidChart") !== null) {
+      var ctx = document.getElementById('pressChart').getContext('2d');
+      pressChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: time,
+          datasets: data
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false,
+                callback: function callback(value, index, values) {
+                  return value + ' hpa';
+                }
               }
-            }
-          }]
-        },
-        title: {
-          display: true,
-          text: 'Presiunea atmosferică',
-          fontSize: 30
-        },
-        tooltips: {
-          backgroundColor: 'rgba(0,0,0,0.6)',
-          titleFontColor: 'rgba(0, 0, 0, 0)',
-          titleFontSize: 0,
-          titleMarginBottom: 3,
-          bodyFontSize: 15,
-          callbacks: {
-            label: function label(tooltipItems, data) {
-              return '  ' + data.datasets[tooltipItems.datasetIndex].label + '  h: ' + data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index].x + '  ' + tooltipItems.yLabel + ' hPa';
+            }]
+          },
+          title: {
+            display: true,
+            text: 'Presiunea atmosferică',
+            fontSize: 30
+          },
+          tooltips: {
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            titleFontColor: 'rgba(0, 0, 0, 0)',
+            titleFontSize: 0,
+            titleMarginBottom: 3,
+            bodyFontSize: 15,
+            callbacks: {
+              label: function label(tooltipItems, data) {
+                return '  ' + data.datasets[tooltipItems.datasetIndex].label + '  h: ' + data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index].x + '  ' + tooltipItems.yLabel + ' hPa';
+              }
             }
           }
         }
-      }
-    });
+      });
+    }
   }
 });
 

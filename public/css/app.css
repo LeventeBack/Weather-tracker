@@ -11025,3 +11025,20 @@ a.text-dark:hover {
   transform: rotate(45deg);
 }
 
+/* ERROR CLASSES */
+
+tr.table-danger.tmp > td.tmp {
+  font-weight: bold;
+  color: #a80000;
+}
+
+tr.table-danger.hmd > td.hmd {
+  font-weight: bold;
+  color: #a80000;
+}
+
+tr.table-danger.prs > td.prs {
+  font-weight: bold;
+  color: #a80000;
+}
+
