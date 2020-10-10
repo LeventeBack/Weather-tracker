@@ -7,9 +7,11 @@
             @csrf
             <div class="card-body">
                 <a href="/sensors/{{$sensor->id}}" class="btn btn-outline-info"><i class="fas fa-arrow-left mr-1"></i> Back</a>
-                <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
-                   <i class="fas fa-trash mr-1"></i> Delete Sensor
-                </button>
+                @if(auth()->user()->isAdmin())
+                    <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-trash mr-1"></i> Delete Sensor
+                    </button>
+                @endif
                 <h3 class="text-center">Edit Sensor</h3>
                 <div class="form-group">
                     <label for="name">Name:</label>

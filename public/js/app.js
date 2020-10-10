@@ -37267,6 +37267,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 $(document).ready(function () {
+  $(".dropdown-toggle").dropdown();
   var tempChart, humidChart, pressChart;
   var chartPathtext = '.checkbox-list .checkbox-list-item input';
   var time = [];
@@ -37279,42 +37280,28 @@ $(document).ready(function () {
 
   $('#chart_date').ready(function () {
     var today = new Date().toISOString().substr(0, 10);
-    $("#chart_date").val(today); //checkCheckboxes()
-
-    $.ajax({
-      url: "/charts/data",
-      method: "GET",
-      data: {
-        date: today,
-        sensorIds: [1, 2, 3]
-      },
-      dataType: 'json',
-      success: function success(data) {
-        data = data.data;
-        chartItTemp(data[0]);
-        chartItHumid(data[1]);
-        chartItPress(data[2]);
-      },
-      error: function error(err) {
-        console.log(err.responseText);
-      }
+    $("#chart_date").val(today);
+    var checkElements = document.querySelectorAll(chartPathtext);
+    checkElements.forEach(function (element) {
+      element.checked = true;
     });
+    $('#chart-form').submit();
   });
   $('#chart-form').on('submit', function (event) {
-    event.preventDefault(); //$('#chart-error-message').text('')
-
+    event.preventDefault();
     var date = $('#chart_date').val();
     var checkElements = document.querySelectorAll(chartPathtext);
     var sensorIds = [];
-
-    for (var _i = 0; _i < checkElements.length; _i++) {
-      if (checkElements[_i].checked) {
-        sensorIds.push(parseInt(checkElements[_i].value));
-      }
-    }
+    checkElements.forEach(function (element) {
+      if (element.checked) sensorIds.push(parseInt(element.value));
+    });
+    $('#chart-error-message').addClass('d-none');
+    $('#chart-warning-message').addClass('d-none');
+    $('#loading').text('Loading Data...');
 
     if (sensorIds.length === 0) {
-      $('#chart-error-message').text('You must select at least one sensor!');
+      $('#chart-error-message').removeClass('d-none');
+      $('#loading').text('');
     } else {
       if (tempChart != undefined) {
         tempChart.destroy();
@@ -37330,14 +37317,23 @@ $(document).ready(function () {
           sensorIds: sensorIds
         },
         dataType: "json",
-        success: function success(data) {
-          data = data.data;
-          chartItTemp(data[0]);
-          chartItHumid(data[1]);
-          chartItPress(data[2]);
+        success: function success(_ref) {
+          var data = _ref.data;
+          $('#loading').text('');
+
+          if (data[0][0].data.length !== 0) {
+            $('#charts-section').removeClass('d-none');
+            chartItTemp(data[0]);
+            chartItHumid(data[1]);
+            chartItPress(data[2]);
+          } else {
+            $('#chart-warning-message').removeClass('d-none');
+            $('#charts-section').addClass('d-none');
+          }
         },
         error: function error(err) {
-          console.log(err.responseText);
+          $('#loading').text('Something went wrong! Try again later.');
+          console.error(err.responseText);
         }
       });
     }
@@ -37380,7 +37376,7 @@ $(document).ready(function () {
           },
           title: {
             display: true,
-            text: 'Temperatura ambiantă',
+            text: 'Air Temperature (°C)',
             fontSize: 30
           },
           tooltips: {
@@ -37424,7 +37420,7 @@ $(document).ready(function () {
           },
           title: {
             display: true,
-            text: 'Umiditate relativă',
+            text: 'Air Humidity (%)',
             fontSize: 30
           },
           tooltips: {
@@ -37468,7 +37464,7 @@ $(document).ready(function () {
           },
           title: {
             display: true,
-            text: 'Presiunea atmosferică',
+            text: 'Atmospheric pressure (hPa)',
             fontSize: 30
           },
           tooltips: {

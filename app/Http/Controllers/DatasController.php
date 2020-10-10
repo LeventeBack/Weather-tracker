@@ -86,7 +86,9 @@ class DatasController extends Controller
         
         if(auth()->check()){
             $data = Data::find($id);
-
+            if(auth()->user()->id !== $data->sensor->user->id){
+                return redirect('/datas')->with('error', 'Unauthorized Page');
+            }
             return view('datas.show')->with('data', $data);
         } else {
             return view('auth.login');

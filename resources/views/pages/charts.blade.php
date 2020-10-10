@@ -28,18 +28,32 @@
             </div>
         </form> 
 
+
+        <div id="chart-warning-message" class="alert alert-warning d-none text-center mt-5">
+            There is no recorded data from the selected sensors on the selected day. 
+        </div>
+
+        <div id="chart-error-message" class="alert alert-danger d-none text-center mt-5">
+            You must select at least one sensor!
+        </div>
+
+        <h4 id="loading" class="text-center mt-5"></h4>
         
-        <div class='chart-container'>
-            <canvas id="tempChart"></canvas>
-        </div>
+        <section id="charts-section">
+            <div class='chart-container'>
+                <canvas id="tempChart"></canvas>
+            </div>
 
-        <div class='chart-container'>
-            <canvas id="humidChart"></canvas>
-        </div>
+            <div class='chart-container'>
+                <canvas id="humidChart"></canvas>
+            </div>
 
-        <div class='chart-container'>
-            <canvas id="pressChart"></canvas>
-        </div>     
+            <div class='chart-container'>
+                <canvas id="pressChart"></canvas>
+            </div>    
+        </section>
+
+ 
     @else
         <h2>You have no available sensors.</h2>
     @endif

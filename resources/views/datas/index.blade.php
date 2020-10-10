@@ -20,7 +20,7 @@
                         <td class="hmd">{{$data->humidity}}%</td>
                         <td class="prs">{{$data->pressure}}hPa</td>
                         <td>{{$data->created_at}}</td>
-                        <td class="">
+                        <td>
                         <a href="/datas/{{$data->id}}" class="btn float-right {{$data->getButtonClassName()}}"><i class="fas fa-eye mr-1"></i> View Details</a>
                         </td>
                     </tr>                        
