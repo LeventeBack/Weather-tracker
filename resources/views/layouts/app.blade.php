@@ -33,8 +33,10 @@
     <div id="app">
         @include('inc.navbar')
         @include('inc.messages')
-        
-        <div class="container">
+    
+        @yield('banner')
+
+        <div class="container  mt-5">
             @yield('content')
         </div>
     </div>
