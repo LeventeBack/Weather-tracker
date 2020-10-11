@@ -26,12 +26,10 @@ Route::get('/users/{id}', 'PagesController@singleuser');
 Route::resource('sensors', 'SensorsController');
 Route::resource('datas', 'DatasController');
 Auth::routes();
+/*
+Route::get('/email', function() {
+    Mail::to('email@email.com')->send(new ErrorMail());
 
-Route::get('/send-mail', function() {
-    $details = [
-        'title' => 'Some title',
-        'body' => 'Test BODY'
-    ];
-    Mail::to('backistvanlevente06@gmail.com')->send(new ErrorMail($details));
-    echo 'Email has been sent';
+    return new ErrorMail();
 });
+*/
