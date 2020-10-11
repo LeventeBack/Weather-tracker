@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ErrorMail;
 use App\Data;
 use App\User;
 use DB;
@@ -29,7 +31,6 @@ class DatasController extends Controller
                     $datas = [];
                 }
             }
-
             return view('datas.index')->with('datas', $datas);           
         } else {
             return view('auth.login');
@@ -70,6 +71,9 @@ class DatasController extends Controller
             $data->pressure = $request->input('pressure'); 
   
             $data->save();            
+            if($data->isError()){
+                sendErrorMail($data);
+            } 
         } else {
             return 403;
         }
@@ -89,6 +93,9 @@ class DatasController extends Controller
             if(auth()->user()->id !== $data->sensor->user->id){
                 return redirect('/datas')->with('error', 'Unauthorized Page');
             }
+            // TEST MAIL
+            Mail::to('backistvanlevente17@gmail.com')->send(new ErrorMail());
+
             return view('datas.show')->with('data', $data);
         } else {
             return view('auth.login');
@@ -137,6 +144,10 @@ class DatasController extends Controller
             }        
         } else {
                 return view('auth.login');
-            } 
-        }
+        } 
+    }
+
+    private function sendErrorMail(Data $data){
+        Mail::to($data->sensor->user->email)->send(new ErrorMail());
+    }
 }

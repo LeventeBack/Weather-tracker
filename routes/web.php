@@ -26,9 +26,3 @@ Route::get('/users/{id}', 'PagesController@singleuser');
 Route::resource('sensors', 'SensorsController');
 Route::resource('datas', 'DatasController');
 Auth::routes();
-
-Route::get('/email', function() {
-    Mail::to('email@email.com')->send(new ErrorMail());
-
-    return new ErrorMail();
-});
