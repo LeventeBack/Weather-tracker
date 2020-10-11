@@ -21,6 +21,11 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 ![technologies](./img/technologies.png)
 2. ábra – Használt Frontend, Backend és hosztolást elősegítő tehnológiák
 
+#### Frontend
+    - HTML
+    - CSS
+    - JavasScript
+
 * * * * *
 
 ## III. Az alkalmazás szolgáltatásai:
