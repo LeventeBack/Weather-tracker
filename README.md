@@ -182,10 +182,10 @@ légnyomás-változást mutató grafikon is.
 
 ## VII. A használt szenzorok adatai 
 
-A wabalkalmazás a BME280-as szenzorral felszerelt ... 
+A wabalkalmazás a BME280-as szenzorral felszerelt NodeMCU ESP8266 WiFi modul küldi az adatokat.  
 
 ![senzor](./img/sensor.jpg)
-​18. ábra – A BME280-as senzor a ...-al
+​18. ábra – A BME280-as senzorral felszerelt WiFi modul 
 
 Az adatok 10 percenként vannak mérve és egy internetes adatbáziba lementve.  
 
