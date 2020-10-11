@@ -5,7 +5,6 @@ Readme - Weather Tracker
 
 #### I. Bevezető
 
-\
 
 ##### A Weather Tracker nevű weboldal egy egyszerű és letisztult felhasználói felületet biztosít arra, hogy az általunk birtokolt szenzorok adatait követni tudjuk és értesüljünk esetleges vészhelyezetekről.
 
@@ -17,13 +16,11 @@ Readme - Weather Tracker
 
 #### II. Az alkalmazás szolgáltatásai:
 
-\
 
 ![index page -\> features](./img/index-features.png)
 
 ​2. ábra – Az alkalmazás szolgáltatásai
 
-\
 
 -   **24/7 elérés** - az oldal bármikor, bármilyen eszközről elérhető.
 -   **Az adatok védelme** - A saját adataid védve vannak a felhasználói
@@ -50,7 +47,6 @@ Readme - Weather Tracker
 
 #### IV. Adminisztrátori jogok!
 
-\
 
 1.  **Összes adat monitorizálása**
 2.  **Felhasználók szenzorainak kezelése**
@@ -58,7 +54,6 @@ Readme - Weather Tracker
 
 ##### IV. – 1. Összes adat monitorizálása (Latest Data menüpont)
 
-\
 
 ![admin-data](./img/admin-data.png)
 
@@ -72,8 +67,6 @@ adott mérést.
 
 ​5. ábra – A mérés részletes áttekintője
 
-\
- \
 
 ##### IV. – 2. Felhasználók szenzorainak kezelése (Users menüpont)
 
@@ -90,14 +83,11 @@ tekinthetjük meg.
 
 ##### IV. – 3. Szenzorok bellálításainak és tulajdonosának módosítása (Sensors menüpont)
 
-\
 
 ![admin-sensors](./img/admin-sensors.png)
 
 ​7. ábra – Az összes szenzor kilistázva
 
-\
- \
 
 Az "Add Sensors" gombra kattintva új senzort adhatunk hozzá az
 adatbázishoz
@@ -126,8 +116,6 @@ Az admin itt módosíthatja a szenzor tulajdonosát.
 
 #### V. felhasználói jogok!
 
-\
-
 1.  **A saját adatok monitorizálása**
 2.  **A saját szenzorok bellálításainak módosítása.**
 3.  **A saját adatok grafikonos áttekintése**
@@ -136,12 +124,8 @@ Az admin itt módosíthatja a szenzor tulajdonosát.
 
 ​11. ábra – A felhasználók által látott oldal belépéskor
 
-\
- \
-
 ##### V. – 1. A saját adatok monitorizálása (Latest Data menüpont)
 
-\
 
 ![user-data](./img/user-data.png)
 
@@ -151,11 +135,8 @@ legfelül. Az oldalon lapozni is lehet
 A "View Details" gombra kattintva pedig részletesebben megnézhetjük az
 adott mérést hasonlóan az adminokhoz.
 
-\
-
 ##### V. – 2. A saját szenzorok bellálításainak módosítása (My Sensors menüpont)
 
-\
 
 ![user-sensors](./img/user-sensors.png)
 
@@ -165,24 +146,19 @@ A "View Details" gombra kattintva pedig részletesebben megnézhetjük a
 senzor beállításait és onnan pedig az "Edit sensors" menüpont a
 beállításokat modosító űrlapra irányít minket.
 
-\
 
 ![user-sensors-edit](./img/user-sensors-edit.png)
 
 ​14. ábra – A szenzor adatait módosÍtó űrlap.
 
 A felhasználó ternmészetesen nem tudja a szenzor tulajdonosát
-módosítani. \
+módosítani. 
  Megfigyelhető, hogy beállíthatőak határok amik azt jelzik, hogy
 számunkra milyen skálán mozgó értékek a megfelelőek. A nem megfelelő
 adatok kiemelve jelennek meg. (Lásd. 4. ábra, 5. ábra, 12. ábra) \
  Az itt beállított szín a grafikonon való megjelenéshez szükséges.
 
-\
-
 ##### V. – 3. A saját adatok grafikonos áttekintése (Charts menüpont)
-
-\
 
 Ennél a menüpontnál kiválaszthatjuk, hogy milyen napi adatokat és ezeket
 melyik szenzorainkról szerentnénk látni.
@@ -190,9 +166,6 @@ melyik szenzorainkról szerentnénk látni.
 ![user-charts-filter](./img/user-charts-filter.png)
 
 ​15. ábra – A grafikonok adatainak módosítását biztosító űrlap
-
-\
- \
 
 ![user-charts-temp](./img/user-charts-temp.png)
 
