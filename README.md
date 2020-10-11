@@ -22,13 +22,13 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 2. ábra – Használt Frontend, Backend és hosztolást elősegítő tehnológiák
 
 #### Frontend
-- HTML
-- CSS
-- JavaScript
-- Sass
-- Bootstrap
-- jQuery
-- Chart.js
+- HTML - az alkalmazás elemeinek jelölőnyelve
+- CSS - az alkalmazás stílusának jelölőnyelve 
+- Sass - a CSS irásának dinamizálására használt jelölőnyelv
+- Bootstrap - a dizájn hatékonyabb létrehozására használt CSS keretrendesz  
+- JavaScript - az alkalmazás elemeinek dinamizálására használt programozási nyelv
+- jQuery - JavaScript könyvtár a szerverrel való komunikálásra AJAX tehnológiával
+- Chart.js - JavaScript könyvtár a grafikonok létrehozására 
 
 #### Backend
 - PHP - az alkalmazás szerveloldali részének programozási nyelve 
