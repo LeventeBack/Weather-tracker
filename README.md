@@ -173,3 +173,7 @@ légnyomás-változást mutató grafikon is.
 A wabalkalmazás a BME280-as szenzorral felszerelt ... 
 
 ![senzor](./img/sensor.jpg)
+
+​17. ábra – A BME280-as senzor a ...-al
+
+Az adatok 10 percenként vannak mérve és egy internetes adatbáziba lementve.  
