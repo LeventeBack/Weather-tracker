@@ -31,14 +31,14 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 - Chart.js
 
 #### Backend
-- Php 
-- Laravel framework
-- MySQL
+- PHP - az alkalmazás szerveloldali részének programozási nyelve 
+- Laravel framework - PHP keretrendszer a hatékonyság növelére
+- MySQL - az alkalmazás adatbázisát képezi, adatbázis hoszt: [remotemysql.com](https://remotemysql.com)  
 
 #### Deployment tools
-- GIT 
-- GitHub
-- Heroku 
+- GIT - verziókezelő rendszer, ami a kódot a GitHub-al szinkronizálja
+- GitHub - az alkalmazás verzióinak tárhelye, a szerver innen kapja meg a fájlokat 
+- Heroku - az alkalmazást hosztoló szerver [heroku.com](https://heroku.com) 
 
 * * * * *
 
