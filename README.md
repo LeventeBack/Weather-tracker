@@ -69,16 +69,12 @@ adott mérést.
 
 ##### IV. – 2. Felhasználók szenzorainak kezelése (Users menüpont)
 
-\
-
 ![admin-users](./img/admin-users.png)
 
 ​6. ábra – Az összes felhasználó kilistázva a szenzoraiknak a számával.
 
 A "View" gombra kattintva a kiválasztott felhasználó szenzorait
 tekinthetjük meg.
-
-\
 
 ##### IV. – 3. Szenzorok bellálításainak és tulajdonosának módosítása (Sensors menüpont)
 
