@@ -37,7 +37,6 @@ Readme - Weather Tracker
 
 #### III. Az alkalmazás felhasználói azonosítása:
 
-\
 
 ![auth page](./img/auth.png)
 
