@@ -19,7 +19,7 @@ Readme - Weather Tracker
 
 A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
-![technologies](./technologies.png)
+![technologies](./img/technologies.png)
 
 2. ábra – Használt Frontend, Backend és hosztolást elősegítő tehnológiák
 
