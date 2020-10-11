@@ -11178,6 +11178,7 @@ tr.table-danger.prs > td.prs {
   align-items: center;
   flex-direction: column;
   color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .banner-title {

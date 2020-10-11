@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Mail\ErrorMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,11 @@ Route::resource('sensors', 'SensorsController');
 Route::resource('datas', 'DatasController');
 Auth::routes();
 
+Route::get('/send-mail', function() {
+    $details = [
+        'title' => 'Some title',
+        'body' => 'Test BODY'
+    ];
+    Mail::to('backistvanlevente06@gmail.com')->send(new ErrorMail($details));
+    echo 'Email has been sent';
+});
