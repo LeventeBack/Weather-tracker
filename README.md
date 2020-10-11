@@ -19,7 +19,7 @@ Readme - Weather Tracker
 A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
 ![technologies](./img/technologies.png)
-2. ábra – Használt Frontend, Backend és hosztolást elősegítő tehnológiák
+2. ábra – Használt Frontend, Backend, sensor scripting és hosztolást elősegítő tehnológiák
 
 #### Frontend
 - HTML - az alkalmazás elemeinek jelölőnyelve
@@ -39,6 +39,9 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 - GIT - verziókezelő rendszer, ami a kódot a GitHub-al szinkronizálja
 - GitHub - az alkalmazás verzióinak tárhelye, a szerver innen kapja meg a fájlokat 
 - Heroku - az alkalmazást hosztoló szerver [heroku.com](https://heroku.com) 
+
+#### Sensor Script
+- C++ - a szenzor adat leolvasó és küldő scriptjére használt programozási nyelv 
 
 * * * * *
 
