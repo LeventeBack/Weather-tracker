@@ -170,3 +170,6 @@ légnyomás-változást mutató grafikon is.
 
 ## VI. A Szenzorok adatai
 
+A wabalkalmazás a BME280-as szenzorral felszerelt ... 
+
+![senzor](./img/sensor.jpg)
