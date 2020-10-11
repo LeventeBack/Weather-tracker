@@ -71,9 +71,9 @@ class DatasController extends Controller
             $data->pressure = $request->input('pressure'); 
   
             $data->save();            
-            if($data->isError()){
-                sendErrorMail($data);
-            } 
+            // if($data->isError()){
+            //     sendErrorMail($data);
+            // } 
         } else {
             return 403;
         }
@@ -94,7 +94,7 @@ class DatasController extends Controller
                 return redirect('/datas')->with('error', 'Unauthorized Page');
             }
             // TEST MAIL
-            Mail::to('backistvanlevente17@gmail.com')->send(new ErrorMail());
+            // Mail::to('backistvanlevente17@gmail.com')->send(new ErrorMail());
 
             return view('datas.show')->with('data', $data);
         } else {
@@ -147,7 +147,7 @@ class DatasController extends Controller
         } 
     }
 
-    private function sendErrorMail(Data $data){
-        Mail::to($data->sensor->user->email)->send(new ErrorMail());
-    }
+    // private function sendErrorMail(Data $data){
+    //     Mail::to($data->sensor->user->email)->send(new ErrorMail());
+    // }
 }
