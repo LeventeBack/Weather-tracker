@@ -25,7 +25,7 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 - HTML - az alkalmazás elemeinek jelölőnyelve
 - CSS - az alkalmazás stílusának jelölőnyelve 
 - Sass - a CSS irásának dinamizálására használt jelölőnyelv
-- Bootstrap - a dizájn hatékonyabb létrehozására használt CSS keretrendesz  
+- Bootstrap - a dizájn hatékonyabb létrehozására használt CSS keretrendszer  
 - JavaScript - az alkalmazás elemeinek dinamizálására használt programozási nyelv
 - jQuery - JavaScript könyvtár a szerverrel való komunikálásra AJAX tehnológiával
 - Chart.js - JavaScript könyvtár a grafikonok létrehozására 
