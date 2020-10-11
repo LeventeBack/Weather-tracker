@@ -24,7 +24,21 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 #### Frontend
 - HTML
 - CSS
-- JavasScript
+- JavaScript
+- Sass
+- Bootstrap
+- jQuery
+- Chart.js
+
+#### Backend
+- Php 
+- Laravel framework
+- MySQL
+
+#### Deployment tools
+- GIT 
+- GitHub
+- Heroku 
 
 * * * * *
 
