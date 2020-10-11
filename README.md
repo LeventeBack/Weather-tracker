@@ -52,8 +52,6 @@ Readme - Weather Tracker
 3.  **Szenzorok bellálításainak és tulajdonosának módosítása.**
 
 ##### IV. – 1. Összes adat monitorizálása (Latest Data menüpont)
-
-
 ![admin-data](./img/admin-data.png)
 
 ​4. ábra – Az összes szenzor összes adata kilistázva, mindig a legutolsó
