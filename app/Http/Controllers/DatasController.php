@@ -90,7 +90,7 @@ class DatasController extends Controller
         
         if(auth()->check()){
             $data = Data::find($id);
-            if(auth()->user()->id !== $data->sensor->user->id){
+            if(auth()->user()->id !== $data->sensor->user->id && !auth()->user()->isAdmin()){
                 return redirect('/datas')->with('error', 'Unauthorized Page');
             }
             // TEST MAIL
