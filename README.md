@@ -1,6 +1,6 @@
 Readme - Weather Tracker
 ========================
-[Deployed App](http://home-weather-tracker.herokuapp.com)
+[Deployed App On Heroku](http://home-weather-tracker.herokuapp.com)
 
 * * * * *
 
