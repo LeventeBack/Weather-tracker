@@ -167,3 +167,6 @@ melyik szenzorainkról szerentnénk látni.
 
 Az oldalon tekinthető meg a kiválasztott napi páratartalom- és
 légnyomás-változást mutató grafikon is.
+
+## VI. A Szenzorok adatai
+
