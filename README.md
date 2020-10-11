@@ -25,7 +25,7 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 - HTML - az alkalmazás elemeinek jelölőnyelve
 - CSS - az alkalmazás stílusának jelölőnyelve 
 - Sass - a CSS irásának dinamizálására használt jelölőnyelv
-- Bootstrap - a dizájn hatékonyabb létrehozására használt CSS keretrendesz  
+- Bootstrap - a dizájn hatékonyabb létrehozására használt CSS keretrendszer  
 - JavaScript - az alkalmazás elemeinek dinamizálására használt programozási nyelv
 - jQuery - JavaScript könyvtár a szerverrel való komunikálásra AJAX tehnológiával
 - Chart.js - JavaScript könyvtár a grafikonok létrehozására 
@@ -185,10 +185,10 @@ légnyomás-változást mutató grafikon is.
 
 ## VII. A használt szenzorok adatai 
 
-A wabalkalmazás a BME280-as szenzorral felszerelt ... 
+A wabalkalmazás a BME280-as szenzorral felszerelt NodeMCU ESP8266 WiFi modul küldi az adatokat.  
 
 ![senzor](./img/sensor.jpg)
-​18. ábra – A BME280-as senzor a ...-al
+​18. ábra – A BME280-as senzorral felszerelt WiFi modul 
 
 Az adatok 10 percenként vannak mérve és egy internetes adatbáziba lementve.  
 
