@@ -10,7 +10,6 @@ Readme - Weather Tracker
 ### A Weather Tracker nevű weboldal egy egyszerű és letisztult felhasználói felületet biztosít arra, hogy az általunk birtokolt szenzorok adatait követni tudjuk és értesüljünk esetleges vészhelyezetekről.
 
 ![index page -\> welcome message](./img/index-welcome.png)
-
 ​1. ábra – Az alkalmazás kezdőoldala
 
 * * * * *
@@ -20,7 +19,6 @@ Readme - Weather Tracker
 A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
 ![technologies](./img/technologies.png)
-
 2. ábra – Használt Frontend, Backend és hosztolást elősegítő tehnológiák
 
 * * * * *
@@ -29,7 +27,6 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
 
 ![index page -\> features](./img/index-features.png)
-
 ​3. ábra – Az alkalmazás szolgáltatásai
 
 
@@ -50,7 +47,6 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
 
 ![auth page](./img/auth.png)
-
 ​4. ábra – Az alkalmazás regisztrációs és bejelentkezési űrlapja
 
 * * * * *
