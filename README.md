@@ -60,7 +60,6 @@ A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
 ### V. – 1. Összes adat monitorizálása (Latest Data menüpont)
 ![admin-data](./img/admin-data.png)
-
 ​5. ábra – Az összes szenzor összes adata kilistázva, mindig a legutolsó
 adattal legfelül. Az oldalon lapozni is lehet
 
@@ -68,14 +67,12 @@ A "View Details" gombra kattintva pedig részletesebben megnézhetjük az
 adott mérést.
 
 ![admin-data-show](./img/admin-data-show.png)
-
 ​6. ábra – A mérés részletes áttekintője
 
 
 ### V. – 2. Felhasználók szenzorainak kezelése (Users menüpont)
 
 ![admin-users](./img/admin-users.png)
-
 ​7. ábra – Az összes felhasználó kilistázva a szenzoraiknak a számával.
 
 A "View" gombra kattintva a kiválasztott felhasználó szenzorait
@@ -85,7 +82,6 @@ tekinthetjük meg.
 
 
 ![admin-sensors](./img/admin-sensors.png)
-
 ​8. ábra – Az összes szenzor kilistázva
 
 
@@ -93,21 +89,18 @@ Az "Add Sensors" gombra kattintva új senzort adhatunk hozzá az
 adatbázishoz
 
 ![admin-sensors-add](./img/admin-sensors-add.png)
-
 ​9. ábra – A szenzor hozzáadásának űrlapja
 
 A "View Details" gombra kattintva pedig a kiválasztott szenzor
 beállításait és legutóbbi adatait tekinthetjük meg.
 
 ![admin-sensors-show](./img/admin-sensors-show.png)
-
 10. ábra – A szenzor beállításai és legutóbbi adatai.
 
 Az "Edit Settings" gombra kattintva a kiválasztott szenzor beállításait
 módosíthatjuk.
 
 ![admin-sensors-edit](./img/admin-sensors-edit.png)
-
 ​11. ábra – A szenzor beállításait módosító űrlap
 
 Az admin itt módosíthatja a szenzor tulajdonosát.
@@ -121,14 +114,12 @@ Az admin itt módosíthatja a szenzor tulajdonosát.
 3.  **A saját adatok grafikonos áttekintése**
 
 ![index-user-welcome](./img/index-user-welcome.png)
-
 ​12. ábra – A felhasználók által látott oldal belépéskor
 
 ### VI. – 1. A saját adatok monitorizálása (Latest Data menüpont)
 
 
 ![user-data](./img/user-data.png)
-
 ​13. ábra – A saját adatok kilistázva, mindig a legutolsó adattal
 legfelül. Az oldalon lapozni is lehet
 
@@ -139,7 +130,6 @@ adott mérést hasonlóan az adminokhoz.
 
 
 ![user-sensors](./img/user-sensors.png)
-
 ​14. ábra – A saját szenzorok kilistázva
 
 A "View Details" gombra kattintva pedig részletesebben megnézhetjük a
@@ -148,7 +138,6 @@ beállításokat modosító űrlapra irányít minket.
 
 
 ![user-sensors-edit](./img/user-sensors-edit.png)
-
 ​15. ábra – A szenzor adatait módosÍtó űrlap.
 
 A felhasználó ternmészetesen nem tudja a szenzor tulajdonosát
@@ -164,11 +153,9 @@ Ennél a menüpontnál kiválaszthatjuk, hogy milyen napi adatokat és ezeket
 melyik szenzorainkról szerentnénk látni.
 
 ![user-charts-filter](./img/user-charts-filter.png)
-
 ​16. ábra – A grafikonok adatainak módosítását biztosító űrlap
 
 ![user-charts-temp](./img/user-charts-temp.png)
-
 ​17. ábra – A hőmérséklet-változást mutató grafikon a kiválasztott napra
 
 Az oldalon tekinthető meg a kiválasztott napi páratartalom- és
@@ -179,7 +166,6 @@ légnyomás-változást mutató grafikon is.
 A wabalkalmazás a BME280-as szenzorral felszerelt ... 
 
 ![senzor](./img/sensor.jpg)
-
 ​18. ábra – A BME280-as senzor a ...-al
 
 Az adatok 10 percenként vannak mérve és egy internetes adatbáziba lementve.  
