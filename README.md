@@ -177,3 +177,12 @@ A wabalkalmazás a BME280-as szenzorral felszerelt ...
 ​17. ábra – A BME280-as senzor a ...-al
 
 Az adatok 10 percenként vannak mérve és egy internetes adatbáziba lementve.  
+
+
+## VII. Használt Tehnológiák
+
+A webalkalmazás sokféle tehnológiát ötvözve jött létre.
+
+'[technologies](./technologies.jpg)
+
+18. ábra – Használt Frontend, Backend és hosztolást elősegítő tehnológiák
