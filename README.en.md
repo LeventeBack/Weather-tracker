@@ -1,20 +1,20 @@
 Readme - Weather Tracker
 ========================
-[A hostolt webalkalmazás linkje](http://home-weather-tracker.herokuapp.com)
+[Hosted web app link](http://home-weather-tracker.herokuapp.com)
 
 * * * * *
 
-## I. Bevezető
+## I. Introduction
 
 
-### A Weather Tracker nevű weboldal egy egyszerű és letisztult felhasználói felületet biztosít arra, hogy az általunk birtokolt szenzorok adatait követni tudjuk és értesüljünk esetleges vészhelyezetekről.
+### The Weather Tracker website provides an app with a simple user interface, to preview our sensors data and to get notifyed if anithing is unusual.
 
 ![index page -\> welcome message](./img/index-welcome.png)
-​1. ábra – Az alkalmazás kezdőoldala
+​Figure 1 – The starting page of the app
 
 * * * * *
 
-## II. Használt Tehnológiák
+## II. Used technologies
 
 A webalkalmazás sokféle tehnológiát ötvözve jött létre.
 
