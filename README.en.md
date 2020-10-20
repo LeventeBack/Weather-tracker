@@ -108,7 +108,7 @@ By clicking on the "Add Sensors" button we can add more sensors to the system
 By clicking the "View Details" button we can see the selected sensors's settings and all the data.
 
 ![admin-sensors-show](./img/admin-sensors-show.png)
-​Figure 10 – The sensors settings and the .
+​Figure 10 – The sensors settings and the it's data.
 
 By clicking on the "Edit Settings" button we can change the sensors's settings.
 
@@ -158,7 +158,7 @@ Here can be set the color for the charts as well.
 
 Here you can select and view the data of the selected sensors for a selected day 
 
-![user-charts-filter](./img/user-charts-filter.png)
+![user-charts-filter](./img/user-charts-filter.png)   
 ​Figure 16 – A form for selecting the preffered date and sensors
 
 ![user-charts-temp](./img/user-charts-temp.png)
