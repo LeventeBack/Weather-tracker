@@ -55,7 +55,7 @@ Figure 2 – Used FrontEnd, BackEnd, sensor scripting and deployment tools and l
 -   **24/7 Access** - the website can be accessed anytime from any device.
 -   **Security** - data security thanks to the secure authentication system.
 -   **Data Diversity** - the sensors track the air temperature, humidity and atmospheric pressure.
--   **Grafikonok** - datas can be viewed on descriptive charts.
+-   **Data Charts** - datas can be viewed on descriptive charts.
 -   **Live Updates** - the data is always up to date on the website.
 -   **Error Bounderies** - set error bounderies and track unusual changes.
 
@@ -69,7 +69,7 @@ Figure 2 – Used FrontEnd, BackEnd, sensor scripting and deployment tools and l
 
 * * * * *
 
-## V. Administrator rights!
+## V. Administrator rights
 
 
 1.  **Access all the data**
@@ -105,83 +105,74 @@ By clicking on the "Add Sensors" button we can add more sensors to the system
 ![admin-sensors-add](./img/admin-sensors-add.png)
 ​Figure 9 – The form for adding a sensor
 
-A "View Details" gombra kattintva pedig a kiválasztott szenzor
-beállításait és legutóbbi adatait tekinthetjük meg.
+By clicking the "View Details" button we can see the selected sensors's settings and all the data.
 
 ![admin-sensors-show](./img/admin-sensors-show.png)
-10. ábra – A szenzor beállításai és legutóbbi adatai.
+​Figure 10 – The sensors settings and the .
 
-Az "Edit Settings" gombra kattintva a kiválasztott szenzor beállításait
-módosíthatjuk.
+By clicking on the "Edit Settings" button we can change the sensors's settings.
 
 ![admin-sensors-edit](./img/admin-sensors-edit.png)
-​11. ábra – A szenzor beállításait módosító űrlap
+​Figure 11 – The form for changing the sensor's settings
 
-Az admin itt módosíthatja a szenzor tulajdonosát.
+The admin can change the sensors's owner by selecting a user from the dropdown list.
 
 * * * * *
 
-## VI. felhasználói jogok!
+## VI. User rights
 
-1.  **A saját adatok monitorizálása**
-2.  **A saját szenzorok bellálításainak módosítása.**
-3.  **A saját adatok grafikonos áttekintése**
+1.  **Access the owned sensor's data**
+2.  **Change the owned sensor's settings**
+3.  **Check the data on data charts**
 
 ![index-user-welcome](./img/index-user-welcome.png)
-​12. ábra – A felhasználók által látott oldal belépéskor
+​Figure 12 – The homepage when logged in as a user
 
-### VI. – 1. A saját adatok monitorizálása (Latest Data menüpont)
+### VI. – 1. Access the owned sensor's data (Latest Data link)
 
 
 ![user-data](./img/user-data.png)
-​13. ábra – A saját adatok kilistázva, mindig a legutolsó adattal
-legfelül. Az oldalon lapozni is lehet
+​Figure 13 – All the data from the owned sensors sorted by date with pagination
 
-A "View Details" gombra kattintva pedig részletesebben megnézhetjük az
-adott mérést hasonlóan az adminokhoz.
+By clicking on the "View Details" button we can see more details about that particular dataset just like the admins.
 
-### VI. – 2. A saját szenzorok bellálításainak módosítása (My Sensors menüpont)
+### VI. – 2. Change the owned sensor's settings (My Sensors link)
 
 
 ![user-sensors](./img/user-sensors.png)
-​14. ábra – A saját szenzorok kilistázva
+​Figure 14 – List of all the owned sensors
 
-A "View Details" gombra kattintva pedig részletesebben megnézhetjük a
-senzor beállításait és onnan pedig az "Edit sensors" menüpont a
-beállításokat modosító űrlapra irányít minket.
+By clicking on the "View Details" button we can check the selected sensor's settings, and from there 
+we can access the form where we can change the settings ("Edit sensors" button).
 
 
 ![user-sensors-edit](./img/user-sensors-edit.png)
-​15. ábra – A szenzor adatait módosÍtó űrlap.
+​Figure 15 – The form for changing the sensor's settings
 
-A felhasználó ternmészetesen nem tudja a szenzor tulajdonosát
-módosítani. 
- Megfigyelhető, hogy beállíthatőak határok amik azt jelzik, hogy
-számunkra milyen skálán mozgó értékek a megfelelőek. A nem megfelelő
-adatok kiemelve jelennek meg. (Lásd. 5. ábra, 6. ábra, 13. ábra) 
- Az itt beállított szín a grafikonon való megjelenéshez szükséges.
+The user cannot change the owner of the sensor. 
+It can be observed that here we can set the range of the preffered datas. 
+If the data is besides the range the data will be highlighted in red. (Check Figure 5, Figure 6, Figure 13) 
+Here can be set the color for the charts as well.
 
-### VI. – 3. A saját adatok grafikonos áttekintése (Charts menüpont)
+### VI. – 3. Check the data on data charts (Charts link)
 
-Ennél a menüpontnál kiválaszthatjuk, hogy milyen napi adatokat és ezeket
-melyik szenzorainkról szerentnénk látni.
+Here you can select and view the data of the selected sensors for a selected day 
 
 ![user-charts-filter](./img/user-charts-filter.png)
-​16. ábra – A grafikonok adatainak módosítását biztosító űrlap
+​Figure 16 – A form for selecting the preffered date and sensors
 
 ![user-charts-temp](./img/user-charts-temp.png)
-​17. ábra – A hőmérséklet-változást mutató grafikon a kiválasztott napra
+​Figure 17– The temperature chart showing the data of the selected date 
 
-Az oldalon tekinthető meg a kiválasztott napi páratartalom- és
-légnyomás-változást mutató grafikon is.
+On tha page there are 2 more charts one for the humidity and one for the atmospheric pressure. 
 
-## VII. A használt szenzorok adatai 
+## VII. The sensor 
 
-A wabalkalmazás a BME280-as szenzorral felszerelt NodeMCU ESP8266 WiFi modul küldi az adatokat.  
+A webapplication uses the BME280 sensor with the NodeMCU ESP8266 WiFi module.  
 
 ![senzor](./img/sensor.jpg)
-​18. ábra – A BME280-as senzorral felszerelt WiFi modul 
+​Figure 18 – The BME280 sensor with the WiFi module 
 
-Az adatok 10 percenként vannak mérve és egy internetes adatbáziba lementve.  
+The datas are being read in every 10 minutes and saved to the database.  
 
 
