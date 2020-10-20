@@ -7,7 +7,7 @@ Readme - Weather Tracker
 ## I. Introduction
 
 
-### The Weather Tracker website provides an app with a simple user interface, to preview our sensors data and to get notifyed if anithing is unusual.
+### The Weather Tracker website provides an app with a simple user interface, to preview our sensors data, to get notifyed if anithing is unusual.
 
 ![index page -\> welcome message](./img/index-welcome.png)
 ​Figure 1 – The starting page of the app
@@ -16,102 +16,94 @@ Readme - Weather Tracker
 
 ## II. Used technologies
 
-A webalkalmazás sokféle tehnológiát ötvözve jött létre.
+The web app was created using a lot of different technologies.
 
 ![technologies](./img/technologies.png)
-2. ábra – Használt Frontend, Backend, sensor scripting és hosztolást elősegítő tehnológiák
+Figure 2 – Used FrontEnd, BackEnd, sensor scripting and deployment tools and languages
 
 #### Frontend
-- HTML - az alkalmazás elemeinek jelölőnyelve
-- CSS - az alkalmazás stílusának jelölőnyelve 
-- Sass - a CSS irásának dinamizálására használt jelölőnyelv
-- Bootstrap - a dizájn hatékonyabb létrehozására használt CSS keretrendszer  
-- JavaScript - az alkalmazás elemeinek dinamizálására használt programozási nyelv
-- jQuery - JavaScript könyvtár a szerverrel való komunikálásra AJAX tehnológiával
-- Chart.js - JavaScript könyvtár a grafikonok létrehozására 
+- HTML - the app's markup language
+- CSS - the app's styling language  
+- Sass - to make the CSS more dynamic
+- Bootstrap - CSS framework to make the styling more easier   
+- JavaScript - frontend programming language
+- jQuery - JavaScript library used for AJAX requests to the server
+- Chart.js - JavaScript used for the charts
 
 #### Backend
-- PHP - az alkalmazás szerveloldali részének programozási nyelve 
-- Laravel framework - PHP keretrendszer a hatékonyság növelére
-- MySQL - az alkalmazás adatbázisát képezi, adatbázis hoszt: [remotemysql.com](https://remotemysql.com)  
+- PHP - backend programming language 
+- Laravel framework - PHP framework for making the development more easier 
+- MySQL - the app's database languege, database host: [remotemysql.com](https://remotemysql.com)  
 
 #### Deployment tools
-- GIT - verziókezelő rendszer, ami a kódot a GitHub-al szinkronizálja
-- GitHub - az alkalmazás verzióinak tárhelye, a szerver innen kapja meg a fájlokat 
-- Heroku - az alkalmazást hosztoló szerver [heroku.com](https://heroku.com) 
+- GIT - version control system for syncHronizing the code with GitHub
+- GitHub - version control storage, the server serves the files from here. 
+- Heroku - the webapp's host [heroku.com](https://heroku.com) 
 
 #### Sensor Script
-- C++ - a szenzor adat leolvasó és küldő scriptjére használt programozási nyelv 
+- C++ - programming language for the sensor script for reading and sending data 
 
 * * * * *
 
-## III. Az alkalmazás szolgáltatásai:
+## III. Features:
 
 
 ![index page -\> features](./img/index-features.png)
-​3. ábra – Az alkalmazás szolgáltatásai
+​Figure 3 – The webapp's features
 
 
--   **24/7 elérés** - az oldal bármikor, bármilyen eszközről elérhető.
--   **Az adatok védelme** - A saját adataid védve vannak a felhasználói
-    azonosításnak köszönhetően.
--   **Változatos adatok** - a szenzorok hőmérsékletet, páratartalnmat és
-    légnyomást is mérnek.
--   **Grafikonok** - az adatok látványos grafikonokon is megtakinthetők.
--   **Valós idejű adatok** - ha egy adat bekerül az adatbázisba máris
-    elérhetővé válik az oldalon.
--   **Vészhelyzeti értékek** - a beállított határokon kívül eső értékek
-    ki vannak emelve.
+-   **24/7 Access** - the website can be accessed anytime from any device.
+-   **Security** - data security thanks to the secure authentication system.
+-   **Data Diversity** - the sensors track the air temperature, humidity and atmospheric pressure.
+-   **Grafikonok** - datas can be viewed on descriptive charts.
+-   **Live Updates** - the data is always up to date on the website.
+-   **Error Bounderies** - set error bounderies and track unusual changes.
 
 * * * * *
 
-## IV. Az alkalmazás felhasználói azonosítása:
+## IV. Authentication:
 
 
 ![auth page](./img/auth.png)
-​4. ábra – Az alkalmazás regisztrációs és bejelentkezési űrlapja
+​Figure 4 – The application's registration and login form 
 
 * * * * *
 
-## V. Adminisztrátori jogok!
+## V. Administrator rights!
 
 
-1.  **Összes adat monitorizálása**
-2.  **Felhasználók szenzorainak kezelése**
-3.  **Szenzorok bellálításainak és tulajdonosának módosítása.**
+1.  **Access all the data**
+2.  **Manage the users's sensors**
+3.  **Access to the sensor settings and change the owner.**
 
-### V. – 1. Összes adat monitorizálása (Latest Data menüpont)
+### V. – 1. Access all the data (Latest Data link)
 ![admin-data](./img/admin-data.png)
-​5. ábra – Az összes szenzor összes adata kilistázva, mindig a legutolsó
-adattal legfelül. Az oldalon lapozni is lehet
+​Figure 5 – All the data from all the sensor sorted by date with pagination
 
-A "View Details" gombra kattintva pedig részletesebben megnézhetjük az
-adott mérést.
+By clicking on the "View Details" button we can see more details about that particular dataset.
 
 ![admin-data-show](./img/admin-data-show.png)
-​6. ábra – A mérés részletes áttekintője
+​Figure 6 – Details about the dataset
 
 
-### V. – 2. Felhasználók szenzorainak kezelése (Users menüpont)
+### V. – 2. Manage the users's sensors (Users link)
 
 ![admin-users](./img/admin-users.png)
-​7. ábra – Az összes felhasználó kilistázva a szenzoraiknak a számával.
+​Figure 7 – List of all the users and their number of sensors.
 
-A "View" gombra kattintva a kiválasztott felhasználó szenzorait
-tekinthetjük meg.
+By clicking on the "View" button we can see the selected user's sensors.
 
-### V. – 3. Szenzorok bellálításainak és tulajdonosának módosítása (Sensors menüpont)
+### V. – 3. Access to the sensor settings and change the owner (Sensors link)
 
 
 ![admin-sensors](./img/admin-sensors.png)
-​8. ábra – Az összes szenzor kilistázva
+​Figure 8 – List of all the sensors
 
 
-Az "Add Sensors" gombra kattintva új senzort adhatunk hozzá az
-adatbázishoz
+By clicking on the "Add Sensors" button we can add more sensors to the system
 
 ![admin-sensors-add](./img/admin-sensors-add.png)
-​9. ábra – A szenzor hozzáadásának űrlapja
+​Figure 9 – The form for adding a sensor
 
 A "View Details" gombra kattintva pedig a kiválasztott szenzor
 beállításait és legutóbbi adatait tekinthetjük meg.
