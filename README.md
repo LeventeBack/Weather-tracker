@@ -1,6 +1,6 @@
 Readme - Weather Tracker
 ========================
-[A hostolt webalkalmazás linkje](http://home-weather-tracker.herokuapp.com)
+## [A hostolt webalkalmazás linkje](http://home-weather-tracker.herokuapp.com)
 
 * * * * *
 
