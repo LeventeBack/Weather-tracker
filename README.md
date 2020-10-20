@@ -1,7 +1,7 @@
 Readme - Weather Tracker
 ========================
-## [A hostolt webalkalmazás linkje](http://home-weather-tracker.herokuapp.com)
-
+## [The hosted web application](http://home-weather-tracker.herokuapp.com)
+### [Read the README in english](https://github.com/LeventeBack/home-manager/blob/master/README.en.md)
 * * * * *
 
 ## I. Bevezető
